@@ -1,0 +1,261 @@
+@charset "utf-8";
+
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-image: url(../images/bj.png);
+	background-repeat: repeat;
+
+}
+
+
+.wrapper {
+	width: 1024px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+}
+
+.heand{
+	height: 50px;
+	width: 100%;
+	margin: 0px;
+	float: left;
+	background-color: #f8f8f8;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #999999;
+}
+#loginBtn2 {
+	background:#2a2569;
+    border: medium none;
+    box-shadow: none;
+    height: 30px;
+    margin: 0;
+    padding: 0;
+    width: 60px;
+    border-radius:5px;
+    color:white;
+    line-height: 30px;
+}
+.logo{
+	height: 106px;
+	width: 419px;
+	margin: 100px auto 0 302px;
+	float: left;
+}
+
+.signin{
+	height: auto;
+	width: 760px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: 132px;
+	float: left;
+}
+
+.signin_left2{
+	float: left;
+	height: 50px;
+	width: 340px;
+	background-image: url(../images/bj_1.png);
+	background-repeat: no-repeat;
+	margin-right: 40px;
+	margin-bottom: 20px;
+}
+
+.signin_left3{
+	float: left;
+	height: 50px;
+	width: 40px;
+	margin-left: 6px;
+}
+
+.signin_left4{
+	float: left;
+	height: 50px;
+	width: 270px;
+	margin-left: 15px;
+}
+.signin_left4 input {
+	 background: none;
+    border: none;
+    box-shadow: none;
+    height: 50px;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.signin_left4 input:focus {
+	box-shadow:none;
+}
+.signin_inpnt{
+	background:transparent;
+	border:0px;
+	float: left;
+	height: 50px;
+	width: 270px;
+	font-family: "����", arial;
+	font-size: 12px;
+	line-height: 50px;
+	color: #909090;
+}
+
+.signin_inpnt2{
+background:transparent;
+	border:0px;
+	float: left;
+	height: 50px;
+	width: 270px;
+	font-family: "����", arial;
+	font-size: 12px;
+	line-height: 50px;
+	color: #909090;
+}
+
+.signin_left5{
+	height: 50px;
+	width: 340px;
+	margin-left: 210px;
+	margin-top: 10px;
+	margin-right: auto;
+	float: left;
+}
+
+.signin_left6{
+	float: left;
+	height: 30px;
+	width: 760px;
+	font-family: "����", arial;
+	font-size: 12px;
+	line-height: 30px;
+	color: #622227;
+	margin-bottom: 6px;
+	text-align: center;
+	font-weight: bold;
+}
+.signin_left7{
+	float: left;
+	height: 30px;
+	width: 760px;
+	font-family: "����", arial;
+	font-size: 12px;
+	line-height: 30px;
+	color: #622227;
+	margin-bottom: 6px;
+	text-align: center;
+	font-weight: bold;
+}
+.registerNav {
+	display: inline;
+    float: left;
+    line-height: 30px;
+    padding-right: 10px;
+    cursor: default;
+}
+.signin_left2.registerselectbg {
+	background:url(../images/bj_2.png);
+}
+#companyType {
+	display: block;
+    height: 100%;
+    line-height: 50px;
+    width: 100%;
+    color:#909090;
+}
+#companyTypeUl {
+	 background: #FFFFFF;
+    border-radius: 3px;
+    box-shadow: 0 1px 10px rgba(0, 0, 0, 0.1);
+    left: -13px;
+    list-style: none outside none;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 0;
+    padding: 0;
+    position: absolute;
+    top: 50px;
+    width: 290px;
+    display:none;
+     z-index: 1000;
+}
+#companyTypeUl li {
+	height: 20px;
+    padding: 6px 10px;
+    cursor:auto;
+}
+#companyTypeUl li {
+	height: 20px;
+    padding: 6px 10px;
+}
+ #companyTypeUl li:hover {
+	background:#2A2569;
+	color:white;
+	font-weight:bold;
+}
+#regiterBtn {
+	background:#2A2569;
+	border-radius: 5px;
+    box-shadow: none;
+    color: #FFFFFF;
+    display: block;
+    font-size: 24px;
+    height: 50px;
+    line-height: 50px;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    text-decoration: none;
+    width: 340px;
+}
+
+.pwd-checklist-wrapper {
+	position:absolute;
+	left:50px;
+	display:none;
+}
+.pwd-checklist-wrapper .pwd-checklist-arrow {
+    left: 0;
+    position: absolute;
+    top: 8px;
+}
+
+.pwd-checklist-wrapper .pwd-checklist-arrow em.arrowa {
+    color: #DDDDDD;
+    left: 218px;
+}
+.pwd-checklist-wrapper .pwd-checklist-arrow em {
+    font-size: 20px;
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+.pwd-checklist-wrapper .pwd-checklist-arrow em.arrowb {
+    color: #F9F9F9;
+    left: 217px;
+}
+.pwd-checklist {
+    background: none repeat scroll 0 0 #F9F9F9;
+    border: 1px solid #DDDDDD;
+    box-shadow: 1px 1px 1px #EFEFEF;
+    margin-left: 10px;
+    padding: 5px 10px;
+    width: 200px;
+    list-style: none outside none;
+}
+.pwd-checklist .pwd-checklist-item {
+    color: #666666;
+    font-size: 12px;
+    line-height: 20px;
+    padding-left: 13px;
+}
+.pwd-checklist-item.wrong {
+	color:#FC4343;
+}
+.pwd-checklist .pwd-checklist-item.wrongMessage {
+	color:#FC4343;
+}
