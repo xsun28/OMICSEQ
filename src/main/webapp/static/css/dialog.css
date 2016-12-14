@@ -1,0 +1,41 @@
+/* drag */
+.drag{display:block;z-index:1050;position:fixed;top:100px;left:100px;height:400px;background:white;border:1px solid #666666;border-radius:5px;box-shadow:0 1px 3px 2px #dddddd;}
+#ucscDrag{width:800px;height:400px;}
+.drag .title{position:relative;height:27px;margin:5px;border-bottom:1px solid #A1B4B0;}
+.drag .title h2{font-size:14px;height:27px;line-height:24px;overflow: hidden;text-overflow: ellipsis;white-space: nowrap;width: 85%;}
+.drag .title div{position:absolute;height:19px;top:2px;right:0;}
+.drag .title a{float:left;width:21px;height:19px;display:block;margin-left:5px;background:url(../images/tool.png) no-repeat;}
+a.open{bottom: 5px;left: 30px;position: fixed;padding: 2px 10px;background-image:none;display: block;float: left;height: 19px;margin-left: 5px;width: 15px;}
+a.open:hover{background-position:0 -29px;}
+a.dialogbutton2 {margin-left: 60px;}
+a.dialogbutton3 {margin-left: 120px;}
+a.dialogbutton4 {margin-left: 180px;}
+a.dialogbutton5 {margin-left: 260px;}
+.drag .title a.min{background-position:-29px 0;}
+.drag .title a.min:hover{background-position:-29px -29px;}
+.drag .title a.max{background-position:-60px 0;}
+.drag .title a.max:hover{background-position:-60px -29px;}
+.drag .title a.revert{background-position:-149px 0;display:none;}
+.drag .title a.revert:hover{background-position:-149px -29px;}
+.drag .title a.closeDialog{background-position:-89px 0px;background-color: #FFFFFF;}
+.drag .title a.closeDialog:hover{background-position:-89px -29px;}
+.drag .content{overflow:auto;margin:0 5px;bottom: 5px;left: 0;position: absolute;right: 0;top: 42px;}
+.drag .resizeBR{position:absolute;width:14px;height:14px;right:0;bottom:0;overflow:hidden;cursor:nw-resize;}
+.drag .resizeL,.drag .resizeT,.drag .resizeR,.drag .resizeB,.drag .resizeLT,.drag .resizeTR,.drag .resizeLB{position:absolute;background:#000;overflow:hidden;opacity:0;filter:alpha(opacity=0);}
+.drag .resizeL,.drag .resizeR{top:0;width:5px;height:100%;cursor:w-resize;}
+.drag .resizeR{right:0;}
+.drag .resizeT,.drag .resizeB{width:100%;height:5px;cursor:n-resize;}
+.drag .resizeT{top:0;}
+.drag .resizeB{bottom:0;}
+.drag .resizeLT,.drag .resizeTR,.drag .resizeLB{width:8px;height:8px;background:#FF0;}
+.drag .resizeLT{top:0;left:0;cursor:nw-resize;}
+.drag .resizeTR{top:0;right:0;cursor:ne-resize;}
+.drag .resizeLB{left:0;bottom:0;cursor:ne-resize;}
+.drag .content img {width:100%;height:100%;}
+
+._show_bar_yqg_show_tb {
+display: block !important;
+}
+.a-pointer {
+cursor: pointer;
+}

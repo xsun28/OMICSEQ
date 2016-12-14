@@ -1,0 +1,144 @@
+@charset "utf-8";
+
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+	background-image: url(../images/bj.png);
+	background-repeat: repeat;
+
+}
+
+.container{
+	height: auto;
+	width: 100%;
+	float: left;
+}
+
+.wrapper {
+	width: 1024px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: auto;
+}
+
+.heand{
+	height: 50px;
+	width: 100%;
+	margin: 0px;
+	float: left;
+	background-color: #f8f8f8;
+	border-bottom-width: 1px;
+	border-bottom-style: solid;
+	border-bottom-color: #999999;
+}
+
+.heand_2{
+	float: right;
+	height: 50px;
+	width: 60px;
+}
+
+.heand_3{
+	float: right;
+	height: 50px;
+	width: auto;
+	font-family: "arial Unicode MS", "宋体";
+	font-size: 12px;
+	line-height: 50px;
+	color: #999999;
+}
+
+.logo{
+	height: 106px;
+	width: 419px;
+	margin-top: 80px;
+	margin-bottom: 20px;
+	margin-right: auto;
+	margin-left: 302px;
+	float: left;
+}
+
+
+.signin{
+	height: auto;
+	width: 760px;
+	margin-top: 0px;
+	margin-right: auto;
+	margin-bottom: 0px;
+	margin-left: 132px;
+	float: left;
+}
+
+.signin_left2{
+	float: left;
+	height: 50px;
+	width: 340px;
+	background-image: url(../images/bj_1.png);
+	background-repeat: no-repeat;
+	margin-right: 40px;
+	margin-bottom: 20px;
+}
+
+.signin_left3{
+	float: left;
+	height: 50px;
+	width: 40px;
+	margin-left: 6px;
+}
+
+.signin_left4{
+	float: left;
+	height: 50px;
+	width: 270px;
+	margin-left: 15px;
+}
+
+.signin_inpnt{
+	background:transparent;
+	border:0px;
+	float: left;
+	height: 50px;
+	width: 270px;
+	font-family: "宋体", arial;
+	font-size: 12px;
+	line-height: 50px;
+	color: #909090;
+}
+
+.signin_inpnt2{
+background:transparent;
+	border:0px;
+	float: left;
+	height: 50px;
+	width: 270px;
+	font-family: "宋体", arial;
+	font-size: 12px;
+	line-height: 50px;
+	color: #909090;
+}
+
+.signin_left5{
+	height: 50px;
+	width: 340px;
+	margin-left: 210px;
+	margin-top: 60px;
+	margin-right: auto;
+	float: left;
+}
+
+.signin_left6{
+	float: left;
+	height: 30px;
+	width: 760px;
+	font-family: "宋体", arial;
+	font-size: 12px;
+	line-height: 30px;
+	color: #622227;
+	margin-top: 20px;
+	margin-bottom: 20px;
+	text-align: center;
+	font-weight: bold;
+}

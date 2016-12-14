@@ -1,0 +1,23 @@
+@CHARSET "UTF-8";
+.query_container {
+	border: 1px solid  #CECECE;
+	margin: 5px 20px;
+}
+
+.list_container {
+	margin-top:10px;
+	border: 1px solid  #CECECE;
+	min-height: 300px;
+}
+dl {
+    display: inline-block;
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 350px;
+}
+dt {
+    display: inline-block;
+    float: left;
+    width: 120px;
+}

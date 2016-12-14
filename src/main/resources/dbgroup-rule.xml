@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<digester-rules>
+    <pattern value="Root">
+        <object-create-rule classname="com.omicseq.configuration.DBGroupConfig" />
+	    <pattern value="Group">
+	        <object-create-rule classname="com.omicseq.configuration.DBGroup" />
+	        <set-next-rule methodname="addDbGroup"/>
+	        <call-method-rule pattern="Servers" methodname="setServers" paramcount="0"/>
+	        <call-method-rule pattern="Name" methodname="setName" paramcount="0"/>
+	        <call-method-rule pattern="UserName" methodname="setUserName" paramcount="0"/>
+            <call-method-rule pattern="PassWord" methodname="setPassWord" paramcount="0"/>
+            <call-method-rule pattern="Type" methodname="setType" paramcount="0"/>
+	    </pattern>
+    </pattern>
+</digester-rules>

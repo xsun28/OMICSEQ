@@ -1,0 +1,73 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.omicseq:omicseq:war:0.0.1
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-compiler-plugin is missing. @ line 260, column 12
+[WARNING] 'build.plugins.plugin.version' for org.apache.maven.plugins:maven-war-plugin is missing. @ line 273, column 12
+[WARNING] 'build.plugins.plugin.version' for org.eclipse.jetty:jetty-maven-plugin is missing. @ line 278, column 12
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO]                                                                         
+[INFO] ------------------------------------------------------------------------
+[INFO] Building Omicseq 0.0.1
+[INFO] ------------------------------------------------------------------------
+[INFO] 
+[INFO] --- maven-resources-plugin:2.6:resources (default-resources) @ omicseq ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 20 resources
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.1:compile (default-compile) @ omicseq ---
+[INFO] Nothing to compile - all classes are up to date
+[INFO] 
+[INFO] --- exec-maven-plugin:1.5.0:java (default-cli) @ omicseq ---
+22:55:03.534 [com.omicseq.robot.download.sra.SRADownload.main()] DEBUG c.o.s.d.mongodb.FileInfoDAOImpl - table name :FileInfo;findOne:{ "sampleId" : 400006};
+/files/download/sra/400006/400006.sam
+22:55:03.788 [com.omicseq.robot.download.sra.SRADownload.main()] DEBUG c.o.store.daoimpl.mongodb.SampleDAO - table name :Samplenew;findOne:{ "sampleId" : 400006};
+22:55:03.797 [com.omicseq.robot.download.sra.SRADownload.main()] DEBUG c.o.robot.download.sra.SRADownload - root: /files/download/sra dir:/files/download/sra/400006
+ names:[SRR4346772] 
+22:55:03.830 [com.omicseq.robot.download.sra.SRADownload.main()] DEBUG c.o.robot.download.sra.SRADownload - exec /opt/sra/tofq.sh 400006 SRR4346772 
+22:55:38.487 [com.omicseq.robot.download.sra.SRADownload.main()] DEBUG c.o.robot.download.sra.SRADownload - Read 6089467 spots for SRR4346772
+22:55:38.490 [com.omicseq.robot.download.sra.SRADownload.main()] DEBUG c.o.robot.download.sra.SRADownload - Written 6089467 spots for SRR4346772
+22:55:38.502 [com.omicseq.robot.download.sra.SRADownload.main()] DEBUG c.o.robot.download.sra.SRADownload - download SRR4346772 file used 34秒666毫秒!
+22:55:38.504 [com.omicseq.robot.download.sra.SRADownload.main()] DEBUG c.o.s.d.mongodb.FileInfoDAOImpl - table name :FileInfo;update FileInfo[sampleId=400006,source=5,url=http://www.ncbi.nlm.nih.gov/sra/SRX2213520[accn],serverIp=10.0.2.15,path=/files/download/sra/400006/400006.sam,length=0,lastModified=0,chunks=<null>,resume=true,state=5,priority=0,_id=57fe8059056628cd5d482aa2] , { "sampleId" : 400006 , "source" : 5 , "url" : "http://www.ncbi.nlm.nih.gov/sra/SRX2213520[accn]" , "serverIp" : "10.0.2.15" , "path" : "/files/download/sra/400006/400006.sam" , "length" : 0 , "lastModified" : 0 , "chunks" :  null  , "state" : 5 , "priority" : 0 , "_id" : { "$oid" : "57fe8059056628cd5d482aa2"}} 
+22:55:38.513 [com.omicseq.robot.download.sra.SRADownload.main()] DEBUG c.o.robot.download.sra.SRADownload - process 400006 file used 34秒698毫秒!
+[WARNING] thread Thread[MongoCleaner915618293,5,com.omicseq.robot.download.sra.SRADownload] was interrupted but is still alive after waiting at least 15000msecs
+[WARNING] thread Thread[MongoCleaner915618293,5,com.omicseq.robot.download.sra.SRADownload] will linger despite being asked to die via interruption
+[WARNING] thread Thread[MongoCleaner1366435451,5,com.omicseq.robot.download.sra.SRADownload] will linger despite being asked to die via interruption
+[WARNING] thread Thread[MongoCleaner2123535408,5,com.omicseq.robot.download.sra.SRADownload] will linger despite being asked to die via interruption
+[WARNING] NOTE: 3 thread(s) did not finish despite being asked to  via interruption. This is not a problem with exec:java, it is a problem with the running code. Although not serious, it should be remedied.
+[WARNING] Couldn't destroy threadgroup org.codehaus.mojo.exec.ExecJavaMojo$IsolatedThreadGroup[name=com.omicseq.robot.download.sra.SRADownload,maxpri=10]
+java.lang.IllegalThreadStateException
+	at java.lang.ThreadGroup.destroy(ThreadGroup.java:778)
+	at org.codehaus.mojo.exec.ExecJavaMojo.execute(ExecJavaMojo.java:328)
+	at org.apache.maven.plugin.DefaultBuildPluginManager.executeMojo(DefaultBuildPluginManager.java:134)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:207)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:153)
+	at org.apache.maven.lifecycle.internal.MojoExecutor.execute(MojoExecutor.java:145)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:116)
+	at org.apache.maven.lifecycle.internal.LifecycleModuleBuilder.buildProject(LifecycleModuleBuilder.java:80)
+	at org.apache.maven.lifecycle.internal.builder.singlethreaded.SingleThreadedBuilder.build(SingleThreadedBuilder.java:51)
+	at org.apache.maven.lifecycle.internal.LifecycleStarter.execute(LifecycleStarter.java:128)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:307)
+	at org.apache.maven.DefaultMaven.doExecute(DefaultMaven.java:193)
+	at org.apache.maven.DefaultMaven.execute(DefaultMaven.java:106)
+	at org.apache.maven.cli.MavenCli.execute(MavenCli.java:863)
+	at org.apache.maven.cli.MavenCli.doMain(MavenCli.java:288)
+	at org.apache.maven.cli.MavenCli.main(MavenCli.java:199)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launchEnhanced(Launcher.java:289)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.launch(Launcher.java:229)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.mainWithExitCode(Launcher.java:415)
+	at org.codehaus.plexus.classworlds.launcher.Launcher.main(Launcher.java:356)
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time: 51.212 s
+[INFO] Finished at: 2016-10-12T22:55:53-04:00
+[INFO] Final Memory: 19M/349M
+[INFO] ------------------------------------------------------------------------
