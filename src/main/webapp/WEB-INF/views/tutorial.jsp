@@ -68,6 +68,15 @@
     $('#sidebar-wrapper a').click(function(){
     var url=$(this).attr("href");
     $('div.col-lg-12').load(url,function(responseTxt, statusTxt, xhr){
+    	$('.src_replace').each(function(){
+    		var new_src=rootPath+'/'+$(this).attr('src');	
+    		$(this).attr('src',new_src);
+    	});
+    	$('.href_replace').each(function(){
+    		var new_href=rootPath+'/'+$(this).attr('href');	
+    		$(this).attr('src',new_href);
+    	});
+    
     	 $('#gallery a').fancybox({
              overlayColor: '#060',
              overlayOpacity: .3,
