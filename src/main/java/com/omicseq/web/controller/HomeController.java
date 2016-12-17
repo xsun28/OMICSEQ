@@ -1369,6 +1369,11 @@ public class HomeController extends BaseController {
 		return "about";
 	}
 	
+	@RequestMapping("tutorial.htm")
+	public String tutorial(ModelMap map) {
+		return "tutorial";
+	}
+	
 	@RequestMapping("news.htm")
 	public String news() {
 		return "news";

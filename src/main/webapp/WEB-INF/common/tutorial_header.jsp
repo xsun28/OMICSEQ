@@ -95,14 +95,14 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 		</div>
 	</div>
 	
-	<div style="position: fixed; left:20px; top:45px;z-index:99;" xmlns="joy" id="joy-toobar" class="current_historybar">
+<!-- 	<div style="position: fixed; left:20px; top:45px;z-index:99;" xmlns="joy" id="joy-toobar" class="current_historybar">
 		 <div class="div2 shrink" id="getCurrenthistory">
 		 	<div class="div1"><img src="${ctx}/static/images/historyicon.png" /><fmt:message key="label.recentsearch"/></div>
 		 </div>
-	</div>
+	</div> 
 	<div id="current_history">
 		<div class="c_h_content">
 				
 		</div>
-	</div>	
+	</div>	-->
 </div>

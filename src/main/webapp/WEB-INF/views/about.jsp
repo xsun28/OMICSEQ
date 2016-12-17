@@ -37,6 +37,8 @@
 				<fmt:message key="p.aboutus2"></fmt:message>
 				<br><br>
 				<fmt:message key="p.aboutus3"></fmt:message>
+					<br><br>
+				<fmt:message key="p.aboutus4"></fmt:message>
 			</p>
 	   	</div>
 
