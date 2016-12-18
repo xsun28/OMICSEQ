@@ -63,8 +63,6 @@
     var rootPath = '';
     $(document).ready(function(){
     rootPath = '${ctx}';
-    var overview_url=$('#overview').attr("href");
-    $('#page-content-wrapper').load(overview_url);
     $('#sidebar-wrapper a').click(function(){
     var url=$(this).attr("href");
     $('div.col-lg-12').load(url,function(responseTxt, statusTxt, xhr){
@@ -88,6 +86,7 @@
     });
     return false;
     });
+    $('#overview').click();
     });
     </script>
 </head>
@@ -118,6 +117,9 @@
                 </li>
                 <li>
                     <a href="${ctx}/static/html/pathwayTutorial.html" class="service">Pathway</a>
+                </li>
+                 <li>
+                    <a href="${ctx}/static/html/multigeneTutorial.html" class="service">Multigene</a>
                 </li>
                 <li>
                     <a href="${ctx}/static/html/genomicRegionTutorial.html" class="service">Genomic Region</a>
