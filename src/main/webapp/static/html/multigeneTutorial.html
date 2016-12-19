@@ -2,14 +2,179 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Omics Search Engine </title>
+<title>Omicseq Search Engine </title>
+
+<style>
+#page-content{
+		margin: 0 auto;
+		width: 85%;
+	}
+.title{
+
+ margin-bottom:1em;
+		font-size:28px;
+		font-weight: bold;
+}
+p{
+		line-height: 2;
+		margin-bottom: 1em;
+		font-size: 20px;
+		
+		
+	}
+	.subtitle{
+		font-size: 23px;
+	
+		font-style: italic;
+		background-color: aqua;
+		width:80%;
+	}
+	
+.block_view{
+		background-color: #f4f4f4;
+		display:block;
+		width:80%;
+		margin-bottom: 4em;
+	
+	position:relative;
+	}
+	table{
+		width:100%;
+	}
+	table > tr{
+		background-color: #f4f4f4;
+		height: 50px;
+	}
+	table td{
+		line-height:2;	
+		padding-right: 1em;
+		font-size:20px;
+		background-color: #f4f4f4;	
+	}
+	li > p{
+	font-size:17px;	
+	}
+	
+	
+	i {
+		color:blue;
+		font-size:20px;
+	}
+	#gallery {
+		margin-right: 2em;
+		width:100%;
+		height:100%;
+		border-style:groove;
+	}
+	#gallery image{
+		width: 100%;
+		height:1000%;
+		
+	}
+	.fade {
+   opacity: 1;
+   transition: opacity .25s ease-in-out;
+   -moz-transition: opacity .25s ease-in-out;
+   -webkit-transition: opacity .25s ease-in-out;}
+
+      .fade:hover {
+       opacity: 0.6;}
+</style>
 </head>
 <body>
-<div>
-	<img alt="" src="/static/demoimages/multigene.jpg" width="100%">
-</div>
-<div>
-	<img alt="" src="/static/demoimages/multigene1.jpg" width="100%">
-</div>
+				<div id="page-content">	
+                    <p style="text-align:left;margin-top:50px;border-bottom-style: solid;border-bottom-color: blue;"><img class="src_replace" id="search_logo_gene" src="static/images/banner.png" style="width: 300px;height: 75px;"></p>
+                    <div class="title"> 
+                     Multigene Search
+                       </div>
+                        <div class="subtitle">1. Multigene Search Interface</div>
+                    <div class="block_view">
+                    
+                     <table>
+                     <tr>
+                     	<td>
+                     <div id="gallery">
+		<a class="href_replace" href="static/demoimages/multigene1.png"  title="Multigene Search Bar"><img class="src_replace fade" src="static/demoimages/multigene1.png" width="100%" height="100%" alt="Multigene Search Bar"></a>
+		</div>
+                   </td></tr>
+                   <tr>
+                    <td>
+                    <br>
+                   <p>  As the figure above shows, multigene search can be activated by clicking on the <i>"Multigene"</i> button on the search bar. 
+                     A group of functionally related genes can be searched on hg19 database. It requires a description of the genes as the input parameter. The search bar can give hints on the description parameter when provided key words of the genes. Advanced parameters can be specified by clicking the <i>"Setting"</i> button which includes:</p>
+                     <ul>
+                     	<li>
+                     		
+                     		<p> Experiments Types:  	
+                     		Datasets under search can be filtered by setting a filter on experiments types such as ChIP-seq TF, Dnase-seq, GWAS, etc.</p>
+                     	</li>
+                     	<li>
+                     		<p>Data Source: 
+                     		Datasets can also be filtered by setting a filter on  datasoruces such as ArrayExpress, TCGA, GEA, etc.</p>
+                     	
+                     	</li>
+                     </ul>
+				
+                    </td>
+                     </tr>	
+                     </table>
+                     </div>
+                      <div class="subtitle">2. An Example Multigene Search Result</div>
+                     <div class="block_view">
+                     
+                     <table>
+                     <tr>
+                     	<td>
+                      <div id="gallery">
+		<a  class="href_replace" href="static/demoimages/multigene2.png"  title="Multigene Search Sample Results"><img class="src_replace fade" src="static/demoimages/multigene2.png" width="100%" height="100%" alt="Multigene Search Sample Results"></a>
+		</div>    
+                    </td>
+                  	</tr>
+                   <tr>
+                    <td>
+                    <br>
+                    <p> This figure shows the search results on a group of genes which encode p53 inducible proteins. Relevant datasets are returned and ranked as rows including following fields:</p>
+                     <ul>
+                     	<li>
+                     		<p>Rank: This field shows the relevance of the gene in the dataset. The topper the rank is, the more relevant the gene is to the dataset and experiment.?????</p>
+                     	</li>
+                     	<li>
+                     		<p>DatasetID: The identifier of the dataset.</p>
+                     	</li>
+                     	<li>
+                     		<p>DataType: The experiment type on the dataset.</p>
+                     	</li>
+                     	<li>
+                     		<p>Sample: The experimental sample.</p> 
+                     	</li>
+                     	<li>
+                     		<p>Tissue/status/factor: The experimental tissue.</p> 
+                     	</li>
+                     	<li>
+                     		<p>Average: ????????</p>
+                     	</li>
+                     	<li>
+                     		<p>Comulative rank:??????????</p>
+                     	</li>
+                     	<li>
+                     	<p>Study: The datasource.</p>
+                     	</li>
+                     	<li>
+                     		<p>Lab: The university/institution which the contributing lab(s) belong to. </p>
+                     	</li>
+                     	<li>
+                     		<p>More Info: Metainformation and links to related information on other websites. </p>
+                     	</li>
+                     </ul>
+                       For this example, as we can see, vast majority of the top ranked datasets are RNA-seq data collected from normal kidney tissue in the TCGA study. 
+                  
+				
+                    </td>
+                     </tr>	
+                     </table>
+                     </div>
+                     
+	</div>     
+                
 </body>
 </html>
