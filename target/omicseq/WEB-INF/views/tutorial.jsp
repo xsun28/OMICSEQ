@@ -131,10 +131,10 @@
                     <a href="${ctx}/static/html/diseasesRankTutorial.html" class="service">Diseases Rank</a>
                 </li>
                  <li>
-                    <a href="#" class="service">Variants</a>
+                    <a href="${ctx}/static/html/variantTutorial.html" class="service">Variants</a>
                 </li>
                  <li>
-                    <a href="#" class="service">MultiVariants</a>
+                    <a href="${ctx}/static/html/multivariantTutorial.html" class="service">MultiVariants</a>
                 </li>
             </ul>
         </div>

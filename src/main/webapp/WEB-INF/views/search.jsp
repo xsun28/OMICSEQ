@@ -265,7 +265,7 @@ $(document).ready(function(){
 	<input type="hidden" id="isLink" value="${isLink}"/> 
 	<input type="hidden" id="isHistory" value="${isHistory}"/> 
 	<input type="hidden" id="isHistoryResult" value="${isHistoryResult}"/>
-	<ul class="nav nav-tabs" style="margin: auto auto 20px;width: 70%;">
+	<!--  <ul class="nav nav-tabs" style="margin: auto auto 20px;width: 70%;">
 		<li class="choice active" id="gene"><a onclick="highlightTab('gene',true)"><fmt:message key="submenu.gene"/></a></li>
 		<li class="disabled" id="miRNA"><a onclick="highlightTab('miRNA',true)">miRNA </a></li>
 		<li class="disabled" id="pathway"><a onclick="highlightTab('pathway',true)"><fmt:message key="submenu.pathway"></fmt:message></a></li>
@@ -275,10 +275,10 @@ $(document).ready(function(){
 		<li class="disabled" id="diseasesRank"><a onclick="highlightTab('diseasesRank',true)"><fmt:message key="submenu.diseasesRank"></fmt:message></a></li>
 		<li class="disabled" id="variation"><a onclick="highlightTab('variation',true)"><fmt:message key="submenu.variation"></fmt:message></a></li>
 		<li class="disabled" id="multiVariants"><a onclick="highlightTab('multiVariants',true)"><fmt:message key="submenu.multiVariants"></fmt:message></a></li>
-		<!-- 
+	 
 		<li class="disabled" id="dataDownload"><a onclick="highlightTab('dataDownload')"><fmt:message key="submenu.dataDownload"></fmt:message></a></li>
-		 -->
-	</ul>				 		
+		 
+	</ul> -->				 		
 	<div class="tab-content" id="tab_content_gene" >
 		<div class="tab-pane active text-center row-fluid">
 			<div class="control-group">

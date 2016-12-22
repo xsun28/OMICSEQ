@@ -2,14 +2,171 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Omics Search Engine </title>
+<title>Omicseq Search Engine </title>
+
+<style>
+#page-content{
+		margin: 0 auto;
+		width: 85%;
+	}
+.title{
+
+ margin-bottom:1em;
+		font-size:28px;
+		font-weight: bold;
+}
+p{
+		line-height: 2;
+		margin-bottom: 1em;
+		font-size: 20px;
+		
+		
+	}
+	.subtitle{
+		font-size: 23px;
+	
+		font-style: italic;
+		background-color: aqua;
+		width:80%;
+	}
+	
+.block_view{
+		background-color: #f4f4f4;
+		display:block;
+		width:80%;
+		margin-bottom: 4em;
+	
+	position:relative;
+	}
+	table{
+		width:100%;
+	}
+	table > tr{
+		background-color: #f4f4f4;
+		height: 50px;
+	}
+	table td{
+		line-height:2;	
+		padding-right: 1em;
+		font-size:20px;
+		background-color: #f4f4f4;	
+	}
+	li > p{
+	font-size:17px;	
+	}
+	
+	
+	i {
+		color:blue;
+		font-size:20px;
+	}
+	#gallery {
+		margin-right: 2em;
+		width:100%;
+		height:100%;
+		border-style:groove;
+	}
+	#gallery image{
+		width: 100%;
+		height:1000%;
+		
+	}
+	.fade {
+   opacity: 1;
+   transition: opacity .25s ease-in-out;
+   -moz-transition: opacity .25s ease-in-out;
+   -webkit-transition: opacity .25s ease-in-out;}
+
+      .fade:hover {
+       opacity: 0.6;}
+	
+	#red{
+		color:red;
+	}
+</style>
 </head>
 <body>
-<div>
-	<img alt="" src="/static/demoimages/region.jpg" width="100%">
-</div>
-<div>
-	<img alt="" src="/static/demoimages/region1.jpg" width="100%">
-</div>
+				<div id="page-content">	
+                    <p style="text-align:left;margin-top:50px;border-bottom-style: solid;border-bottom-color: blue;"><img class="src_replace" id="search_logo_gene" src="static/images/banner.png" style="width: 300px;height: 75px;"></p>
+                    <div class="title"> 
+						Genomic Region Search (<span id="red">currently under maintenance</span>)
+                       </div>
+                        <div class="subtitle">1. Genomic Region Search Interface</div>
+                    <div class="block_view">
+                    
+                     <table>
+                     <tr>
+                     	<td>
+                     <div id="gallery">
+		<a class="href_replace" href="static/demoimages/region.PNG"  title="Genomic Region Search Bar"><img class="src_replace fade" src="static/demoimages/region.PNG" width="100%" height="100%" alt="Genomic Region Search Bar"></a>
+		</div>
+                   </td></tr>
+                   <tr>
+                    <td>
+                    <br>
+                   <p>  As the figure above shows, genomic region search can be activated by clicking on the <i>"Genomic Region"</i> button on the search bar. 
+                     A user can search hg19 database for a genomic region from a prespecified list, e.g., promoters, enhancers. </p>
+                     
+                    </td>
+                     </tr>	
+                     </table>
+                     </div>
+                      <div class="subtitle">2. An Example Genomic Region Search Result</div>
+                     <div class="block_view">
+                     
+                     <table>
+                     <tr>
+                     	<td>
+                      <div id="gallery">
+		<a  class="href_replace" href="static/demoimages/region1.jpg"  title="Genomic Region Search Sample Results"><img class="src_replace fade" src="static/demoimages/region1.jpg" width="100%" height="100%" alt="Genomic Region Search Sample Results"></a>
+		</div>    
+                    </td>
+                  	</tr>
+                   <tr>
+                    <td>
+                    <br>
+                    <p> This figure shows the search results on promoter region. Relevant datasets are returned and ranked as rows including following fields:</p>
+                     <ul>
+                     	<li>
+                     		<p>Rank: This field shows the relevance of the gene in the dataset. The topper the rank is, the more relevant the gene is to the dataset and experiment.?????</p>
+                     	</li>
+                     	<li>
+                     		<p>DatasetID: The identifier of the dataset.</p>
+                     	</li>
+                     	<li>
+                     		<p>DataType: The experiment type on the dataset.</p>
+                     	</li>
+                     	<li>
+                     		<p>Sample: The experimental sample.</p> 
+                     	</li>
+                     	<li>
+                     		<p>Tissue/status/factor: The experimental tissue.</p> 
+                     	</li>
+                     	<li>
+                     		<p>Selected/Total: ????????</p>
+                     	</li>
+                     	<li>
+                     		<p>Enrichment:??????????</p>
+                     	</li>
+                     	<li>
+                     	<p>Study: The datasource.</p>
+                     	</li>
+                     	<li>
+                     		<p>Lab: The university/institution which the contributing lab(s) belong to. </p>
+                     	</li>
+                     	<li>
+                     		<p>More Info: Metainformation and links to related information on other websites. </p>
+                     	</li>
+                     </ul>
+                       For this example, as we can see,???????. 
+                  
+				
+                    </td>
+                     </tr>	
+                     </table>
+                     </div>
+                     
+	</div>     
+                
 </body>
 </html>

@@ -40,7 +40,7 @@
 						<span style="font-size: 24px; color: #1C86EE;">Genes:</span><br>
 						<span style="font-size: 18px; color: #1C86EE; padding-left: 1em;">EGFR,KRAS, ERBB2, POU5F1, FOXA1…</span><br>
 					</div>
-					<div style="padding-top: 15px;">
+					<!--  <div style="padding-top: 15px;">
 						<span style="font-size: 24px; color: #1C86EE;">miRNA:</span><br>
 						<span style="font-size: 18px; color: #1C86EE; padding-left: 1em;">has-let-7b,has-mir-100… </span><br>
 					</div>
@@ -55,7 +55,7 @@
 					<div style="padding-top: 15px;">
 						<span style="font-size: 24px; color: #1C86EE;">Genomics regions:</span><br>
 						<span style="font-size: 18px; color: #1C86EE; padding-left: 1em;">Chr2 start: 33805280 end: 33808250…</span><br>
-					</div>
+					</div> -->
 				</div>
 			</div>
       </div>
