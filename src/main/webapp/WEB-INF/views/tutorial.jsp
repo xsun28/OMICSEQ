@@ -140,8 +140,21 @@ p{
                       	1. What is Omicseq?
                       </div>
                        <div class="block_view">
-						   <p id="first-paragraph"> Omicseq is a web portal that serves as an omics data explorer and a search engine. It retrieves and processes various types of omics data (RNA-seq, ChIP-seq, ATAC-seq) from multiple major genomic data repositories such as ENCODE,TCGA, etc. Unlike most of the existing dataset search tools which exclusively relies on metadata, our search engine is powered by a ranking algorithm that fully utilize numerical values in the dataset. When query a gene or a pathway name, metadata will not be much helpful, but the numerical values inside the dataset about the gene or the pathway say a lot about whether the dataset is relevant to the query. The trackRank algorithm we developed, harnessing the numerical information of all the genes or pathways to come up with a rank order for each dataset. And the ones rank on top will be output to the users.  
-						   </p> 
+						   <p id="first-paragraph"> Omicseq is a web portal that serves as an omics data explorer and a search engine. 
+						   It retrieves and processes various types of omics data (RNA-seq, ChIP-seq, ATAC-seq) from multiple major genomic data
+						    repositories such as ENCODE,TCGA, etc. Unlike most of the existing dataset search tools which exclusively relies on metadata, our search engine is powered by a ranking algorithm that fully utilize numerical values in the dataset. When query a gene or a pathway name, metadata will not be much helpful, but the numerical values inside the dataset about the gene or the pathway say a lot about whether the dataset is relevant to the query. The trackRank algorithm we developed, harnessing the numerical information of all the genes or pathways to come up with a rank order for each dataset. And the ones rank on top will be output to the users.  
+						   </p>
+						    <p> It provides two search services:</p>
+						   <ul>
+						   	<li><i> Gene Search</i><p>
+						   		Gene can be searched by its name or NCBI RefSeq number. Related datasets are returned and ranked.
+						   	</p></li>
+						   	<li><i>Pathway Search</i>
+						   	<p>
+						   		Gene Pathway can be search by its name, and datasets of gene involved in the pathway are returned and ranked.
+						   	</p>
+						   	</li>
+						   </ul> 
 						</div>	
                     
                         <div class="subtitle">2. Gene Search Interface</div>
@@ -154,7 +167,7 @@ p{
 		</div>
 						</p>
                   
-                   <p>  This figure shows the basic search interface of Omicseq. 
+                   <p>  This figure shows the basic interface of gene search which is activated by clicking the <i>"Gene"</i> tab on the search bar.
                      There are two required input parameters: 1. Gene name; 2. Database (human or mouse). The search bar can give hints on the gene name when entering the first character(s). </p>
                     
                       <p class="p_image">
@@ -181,7 +194,7 @@ p{
 				
                    
                      </div>
-                      <div class="subtitle">2. An Example Search Result</div>
+                      <div class="subtitle">2. An Example of Gene Search Result</div>
                      <div class="block_view">
                     <p class="p_image">
                       <div id="gallery">
@@ -226,6 +239,87 @@ p{
 					</p>
 				
                      </div>
+                     
+                      <div class="subtitle">3. Pathway Search Interface</div>
+                    <div class="block_view">
+                    
+                    <p class="p_image">
+                    <p class="subtitle1"> 1) Basic Interface</p>
+                     <div id="gallery">
+		<a class="href_replace" href="static/demoimages/pathway1.png"  title="Pathway Search Bar"><img class="src_replace fade" src="static/demoimages/pathway1.png" width="100%" height="100%" alt="Pathway Search Bar"></a>
+		</div>
+						</p>
+                  		<p>This figure shows the basic interface of pathway search which is activated by clicking the <i>"Pathway"</i> button on the search bar.
+                        Datasets related to a pathway of interest can be searched by pathway name on hg19 database. The search bar also gives hints on pathway names given first character(s). </p>
+                    
+                      <p class="p_image">
+                       <p class="subtitle1"> 2) Advanced Settings </p>
+                     <div id="gallery">
+		<a class="href_replace" href="static/demoimages/advanced_setting.png"  title="Advanced Setting"><img class="src_replace fade" src="static/demoimages/advanced_setting.png" width="100%" height="100%" alt="Advanced Setting"></a>
+		</div>
+						</p>
+                     
+                     <p> Advanced parameters can be specified by clicking the <i>"Setting"</i> button which includes:</p>
+                     <ul>
+                     	<li>
+                     		
+                     		<p> Experiments Types:  	
+                     		Datasets under search can be filtered by setting a filter on experiments types such as ChIP-seq TF, Dnase-seq, GWAS, etc.</p>
+                     	</li>
+                     	<li>
+                     		<p>Data Source: 
+                     		Datasets can also be filtered by setting a filter on  datasoruces such as ArrayExpress, TCGA, GEA, etc.</p>
+                     	
+                     	</li>
+                     </ul>
+</div>
+                      <div class="subtitle">2. An Example of Pathway Search Result</div>
+                     <div class="block_view">
+                    <p class="p_image">
+                      <div id="gallery">
+		<a  class="href_replace" href="static/demoimages/pathway2.png"  title="Pathway Search Example Results"><img class="src_replace fade" src="static/demoimages/pathway2.png" width="100%" height="100%" alt="Pathway Search Example Results"></a>
+						 </div>    
+                  </p>
+                   
+                    <p> This figure shows the search results on apoptotic program. Relevant datasets are returned and ranked as rows including following fields:</p>
+                     <ul>
+                     	<li>
+                     		<p>Rank: This field shows the relevance of the gene in the dataset. The topper the rank is, the more relevant the gene is to the dataset and experiment.?????</p>
+                     	</li>
+                     	<li>
+                     		<p>DatasetID: The identifier of the dataset.</p>
+                     	</li>
+                     	<li>
+                     		<p>DataType: The experiment type on the dataset.</p>
+                     	</li>
+                     	<li>
+                     		<p>Sample: The experimental sample.</p> 
+                     	</li>
+                     	<li>
+                     		<p>Tissue/status/factor: The experimental tissue.</p> 
+                     	</li>
+                     	<li>
+                     		<p>Average: ????????</p>
+                     	</li>
+                     	<li>
+                     		<p>Comulative value:??????????</p>
+                     	</li>
+                     	<li>
+                     	<p>Comulative rank: ???????</p>
+                     	</li>
+                     	<li>
+                     	<p>Study: The datasource.</p>
+                     	</li>
+                     	<li>
+                     		<p>Lab: The university/institution which the contributing lab(s) belong to. </p>
+                     	</li>
+                     	<li>
+                     		<p>More Info: Metainformation and links to related information on other websites. </p>
+                     	</li>
+</ul>
+				
+                     </div>
+                     
                      
 	</div>     
 <%@ include file="../common/footer.jsp"%>
