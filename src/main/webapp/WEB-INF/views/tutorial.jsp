@@ -205,7 +205,7 @@ p{
                     <p> This figure shows the search results on gene KLK3, the gene coded for the prostate antigen (PSA) protein. Relevant datasets are returned and ranked as rows including following fields:</p>
                      <ul>
                      	<li>
-                     		<p>Rank: This field shows the relevance of the gene in the dataset. The topper the rank is, the more relevant the gene is to the dataset and experiment.?????</p>
+                     		<p>Rank: This field shows the relevance of the gene in the dataset. The higher the rank , the more relevant the dataset is considered to the query gene.</p>
                      	</li>
                      	<li>
                      		<p>DatasetID: The identifier of the dataset.</p>
@@ -220,10 +220,10 @@ p{
                      		<p>Tissue/status/factor: The experimental tissue.</p> 
                      	</li>
                      	<li>
-                     		<p>Order/Total: ????????</p>
+                     		<p>Order/Total: Order of the query gene in this dataset/total number of genes have scored in this dataset.</p>
                      	</li>
                      	<li>
-                     		<p>Percentile:??????????</p>
+                     		<p>Percentile: The percentile of the query gene among all genes in the genome in terms of the scores in this dataset.</p>
                      	</li>
                      	<li>
                      	<p>Study: The datasource.</p>
@@ -284,7 +284,7 @@ p{
                     <p> This figure shows the search results on apoptotic program. Relevant datasets are returned and ranked as rows including following fields:</p>
                      <ul>
                      	<li>
-                     		<p>Rank: This field shows the relevance of the gene in the dataset. The topper the rank is, the more relevant the gene is to the dataset and experiment.?????</p>
+                     		<p>Rank: This field shows the relevance of the pathway in the dataset. The higher the rank , the more relevant the dataset is considered to the query pathway.</p>
                      	</li>
                      	<li>
                      		<p>DatasetID: The identifier of the dataset.</p>
@@ -299,13 +299,13 @@ p{
                      		<p>Tissue/status/factor: The experimental tissue.</p> 
                      	</li>
                      	<li>
-                     		<p>Average: ????????</p>
+                     		<p>Average: Average score of all the genes in this pathway.</p>
                      	</li>
                      	<li>
-                     		<p>Comulative value:??????????</p>
+                     		<p>Cumulative: Total scores of all the genes in this pathway.</p>
                      	</li>
                      	<li>
-                     	<p>Comulative rank: ???????</p>
+                     	<p>Percentile: Percentile of this pathway among all pathways considered in terms of the cumulative scores.</p>
                      	</li>
                      	<li>
                      	<p>Study: The datasource.</p>
