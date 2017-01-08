@@ -13,38 +13,86 @@
 		<link type="text/css" rel="stylesheet" href="${ctx}/static/css/custom.min.css">
 		<link type="text/css" rel="stylesheet" href="${ctx}/static/css/jquery-ui.min.css">
 		<!-- Custom CSS -->
-    	<link href="${ctx}/static/css/simple-sidebar.css" rel="stylesheet">
 		<link type="text/css" rel="stylesheet" href="${ctx}/static/fancybox/jquery.fancybox-1.3.4.css">
 	<style>
-	#sidebar-wrapper, #sidebar-wrapper li {
-	background-color:lightblue;
+	#page-content{
+		margin: 0 auto;
+		width: 85%;
 	}
-	#sidebar-wrapper li.sidebar-brand, #sidebar-wrapper li.sidebar-brand a {
-	background-color:black;
-	color:white;
-	padding: 0px;
-	margin: 0px;
+.title{
+
+ margin-bottom:2em;
+		font-size:30px;
+		font-weight: bold;
+	margin-top:2em;
+}
+p{
+		line-height: 2;
+		margin-bottom: 1em;
+		font-size: 20px;
+		
+		
 	}
-	#sidebar-wrapper a{
-	background-color: lightblue;
-	text-decoration: none;
-	font: 20px, Lucida Console, Monospace;
-	text-indent: 20px;
-	border-top: 1px solid #ccc;
-	border-left:1px solid #ccc;
-	border-right:1px solid #999;
-	border-bottom:1px solid #999;
-	margin: 0px;
-	padding: 0px;
-	color: black;
+	.subtitle{
+		font-size: 23px;
+	
+		font-style: italic;
+		background-color: aqua;
 	}
-	#sidebar-wrapper a.service:hover{
-	border-top:1px solid #999;
-	border-left:1px solid #999;
-	border-right:1px solid #ccc;
-	border-bottom:1px solid #ccc;
-	background-color: #555;
-	color: white;
+		#first-paragraph::first-letter{
+		font-size: xx-large;
+	}
+	.block_view{
+		background-color: #f4f4f4;
+		display:block;
+		padding: 1em 0em 1.6em 2em;
+		margin-bottom: 4em;
+	}
+	
+		p{
+		line-height: 2.5;
+		margin-bottom: 1em;
+		font-size: 20px;
+		
+		
+	}
+	.block_view p{
+		width:80%;
+	}
+	
+	li > p{
+	font-size:17px;	
+	}
+	
+	
+	i {
+		color:blue;
+		font-size:20px;
+	}
+	#gallery {
+		margin-right: 2em;
+		width:80%;
+		height:100%;
+		border-style:groove;
+	}
+
+	.fade {
+   opacity: 1;
+   transition: opacity .25s ease-in-out;
+   -moz-transition: opacity .25s ease-in-out;
+   -webkit-transition: opacity .25s ease-in-out;}
+
+      .fade:hover {
+       opacity: 0.6;}
+	
+	.p_image{
+		margin:auto auto 1.6em 0;
+		width:80%;
+		
+	}
+	p.subtitle1{
+		margin-bottom: 0;
+		color:mediumpurple;
 	}
 	
 	</style>
@@ -63,30 +111,12 @@
     var rootPath = '';
     $(document).ready(function(){
     rootPath = '${ctx}';
-    $('#sidebar-wrapper a').click(function(){
-    var url=$(this).attr("href");
-    $('div.col-lg-12').load(url,function(responseTxt, statusTxt, xhr){
-    	$('.src_replace').each(function(){
-    		var new_src=rootPath+'/'+$(this).attr('src');	
-    		$(this).attr('src',new_src);
-    	});
-    	$('.href_replace').each(function(){
-    		var new_href=rootPath+'/'+$(this).attr('href');	
-    		$(this).attr('src',new_href);
-    	});
-    
-    	 $('#gallery a').fancybox({
-             overlayColor: '#060',
-             overlayOpacity: .3,
-             transitionIn: 'elastic',
-             transitionOut: 'elastic'
-     });
-
-
-    });
-    return false;
-    });
-    $('#overview').click();
+    $('#gallery a').fancybox({
+        overlayColor: '#060',
+        overlayOpacity: .3,
+        transitionIn: 'elastic',
+        transitionOut: 'elastic'
+});
     });
     </script>
 </head>
@@ -94,79 +124,204 @@
 <body>
 
 	<%@ include file="../common/tutorial_header.jsp"%>
-
+<div style="width:100%;height:80px;"></div>
 	
     <div id="wrapper">
 
-        <!-- Sidebar -->
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="#">
-                     Omicseq Tutorial   
-                    </a>
-                </li>
-                <li>
-                    <a href="${ctx}/static/html/overview.html" class="service" id="overview">Overview</a>
-                </li>
-                <li>
-                    <a href="${ctx}/static/html/geneTutorial.html" class="service">Gene</a>
-                </li>
-                <li>
-                    <a href="${ctx}/static/html/mirnaTutorial.html" class="service">miRNA</a>
-                </li>
-                <li>
-                    <a href="${ctx}/static/html/pathwayTutorial.html" class="service">Pathway</a>
-                </li>
-                 <li>
-                    <a href="${ctx}/static/html/multigeneTutorial.html" class="service">Multigene</a>
-                </li>
-                <li>
-                    <a href="${ctx}/static/html/genomicRegionTutorial.html" class="service">Genomic Region</a>
-                </li>
-                <li>
-                    <a href="${ctx}/static/html/datasetSearchTutorial.html" class="service">Dataset Search</a>
-                </li>
-                <li>
-                    <a href="${ctx}/static/html/diseasesRankTutorial.html" class="service">Diseases Rank</a>
-                </li>
-                 <li>
-                    <a href="${ctx}/static/html/variantTutorial.html" class="service">Variants</a>
-                </li>
-                 <li>
-                    <a href="${ctx}/static/html/multivariantTutorial.html" class="service">MultiVariants</a>
-                </li>
-            </ul>
-        </div>
-        <!-- /#sidebar-wrapper -->
-		
-        <!-- Page Content -->
-        <div id="page-content-wrapper">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
+     <div id="page-content">
+                   
+                   	<p style="text-align:center;border-bottom-style: solid;border-bottom-color: blue"><img class="src_replace" id="search_logo"  style="width: 300px;height: 75px;" src="static/images/banner.png" ></p>
+                       <div class="title"> 
+                     Omicseq Tutorial 
+                      
+                       </div>
+                      
+                      <div class="subtitle">
+                      	1. What is Omicseq?
+                      </div>
+                       <div class="block_view">
+						   <p id="first-paragraph"> Omicseq is a web portal that serves as an omics data explorer and a search engine. 
+						   It retrieves and processes various types of omics data (RNA-seq, ChIP-seq, ATAC-seq) from multiple major genomic data
+						    repositories such as ENCODE,TCGA, etc. Unlike most of the existing dataset search tools which exclusively relies on metadata, our search engine is powered by a ranking algorithm that fully utilize numerical values in the dataset. When query a gene or a pathway name, metadata will not be much helpful, but the numerical values inside the dataset about the gene or the pathway say a lot about whether the dataset is relevant to the query. The trackRank algorithm we developed, harnessing the numerical information of all the genes or pathways to come up with a rank order for each dataset. And the ones rank on top will be output to the users.  
+						   </p>
+						    <p> It provides two search services:</p>
+						   <ul>
+						   	<li><i> Gene Search</i><p>
+						   		Gene can be searched by its name or NCBI RefSeq number. Related datasets are returned and ranked.
+						   	</p></li>
+						   	<li><i>Pathway Search</i>
+						   	<p>
+						   		Gene Pathway can be search by its name, and datasets of gene involved in the pathway are returned and ranked.
+						   	</p>
+						   	</li>
+						   </ul> 
+						</div>	
                     
-                        <!-- <h1>Tutorial Overview</h1>
-                        <p> Omicseq TM project provides several search services on whole genome data including: </p>
-                        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>.</p>
-                        <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a> -->
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!-- /#page-content-wrapper -->
-
-    </div>
-    <!-- /#wrapper -->
-
-
-    <!-- Menu Toggle Script -->
-    <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-    </script>
+                        <div class="subtitle">2. Gene Search Interface</div>
+                    <div class="block_view">
+                    
+                    <p class="p_image">
+                    <p class="subtitle1"> 1) Basic Interface</p>
+                     <div id="gallery">
+		<a class="href_replace" href="static/demoimages/gene.png"  title="Gene Search Bar"><img class="src_replace fade" src="${ctx}/static/demoimages/gene1.png" width="100%" height="100%" alt="Gene Search Bar"></a>
+		</div>
+						</p>
+                  
+                   <p>  This figure shows the basic interface of gene search which is activated by clicking the <i>"Gene"</i> tab on the search bar.
+                     There are two required input parameters: 1. Gene name; 2. Database (human or mouse). The search bar can give hints on the gene name when entering the first character(s). </p>
+                    
+                      <p class="p_image">
+                       <p class="subtitle1"> 2) Advanced Settings </p>
+                     <div id="gallery">
+		<a class="href_replace" href="static/demoimages/advanced_setting.png"  title="Advanced Setting"><img class="src_replace fade" src="${ctx}/static/demoimages/advanced_setting.png" width="100%" height="100%" alt="Advanced Setting"></a>
+		</div>
+						</p>
+                     
+                     <p> Advanced parameters can be specified by clicking the <i>"Setting"</i> button which includes:</p>
+                     <ul>
+                     	<li>
+                     		
+                     		<p> Experiments Types:  	
+                     		Datasets under search can be filtered by setting a filter on experiments types such as ChIP-seq TF, Dnase-seq, GWAS, etc.</p>
+                     	</li>
+                     	<li>
+                     		<p>Data Source: 
+                     		Datasets can also be filtered by setting a filter on  datasoruces such as ArrayExpress, TCGA, GEA, etc.</p>
+                     	
+                     	</li>
+                     </ul>
+                     
+				
+                   
+                     </div>
+                      <div class="subtitle">2. An Example of Gene Search Result</div>
+                     <div class="block_view">
+                    <p class="p_image">
+                      <div id="gallery">
+		<a  class="href_replace" href="static/demoimages/gene2.png"  title="Gene Search Sample Results"><img class="src_replace fade" src="${ctx}/static/demoimages/gene2.png" width="100%" height="100%" alt="Gene Search Sample Results"></a>
+						 </div>    
+                  </p>
+                   
+                    <p> This figure shows the search results on gene KLK3, the gene coded for the prostate antigen (PSA) protein. Relevant datasets are returned and ranked as rows including following fields:</p>
+                     <ul>
+                     	<li>
+                     		<p>Rank: This field shows the relevance of the gene in the dataset. The higher the rank , the more relevant the dataset is considered to the query gene.</p>
+                     	</li>
+                     	<li>
+                     		<p>DatasetID: The identifier of the dataset.</p>
+                     	</li>
+                     	<li>
+                     		<p>DataType: The experiment type on the dataset.</p>
+                     	</li>
+                     	<li>
+                     		<p>Sample: The experimental sample.</p> 
+                     	</li>
+                     	<li>
+                     		<p>Tissue/status/factor: The experimental tissue.</p> 
+                     	</li>
+                     	<li>
+                     		<p>Order/Total: Order of the query gene in this dataset/total number of genes have scored in this dataset.</p>
+                     	</li>
+                     	<li>
+                     		<p>Percentile: The percentile of the query gene among all genes in the genome in terms of the scores in this dataset.</p>
+                     	</li>
+                     	<li>
+                     	<p>Study: The datasource.</p>
+                     	</li>
+                     	<li>
+                     		<p>Lab: The university/institution which the contributing lab(s) belong to. </p>
+                     	</li>
+                     	<li>
+                     		<p>More Info: Metainformation and links to related information on other websites. </p>
+                     	</li>
+                     </ul>
+                      <p> For this example, as we can see, vast majority of the top ranked datasets are RNA-seq data collected from prostate cancer patients in the TCGA study. In almost all these datasets, klk3 gene shows up as the highest expressed gene in the entire genome, which speaks volume of its prominence as the biomarker for prostate cancer. 
+					</p>
+				
+                     </div>
+                     
+                      <div class="subtitle">3. Pathway Search Interface</div>
+                    <div class="block_view">
+                    
+                    <p class="p_image">
+                    <p class="subtitle1"> 1) Basic Interface</p>
+                     <div id="gallery">
+		<a class="href_replace" href="static/demoimages/pathway1.png"  title="Pathway Search Bar"><img class="src_replace fade" src="static/demoimages/pathway1.png" width="100%" height="100%" alt="Pathway Search Bar"></a>
+		</div>
+						</p>
+                  		<p>This figure shows the basic interface of pathway search which is activated by clicking the <i>"Pathway"</i> button on the search bar.
+                        Datasets related to a pathway of interest can be searched by pathway name on hg19 database. The search bar also gives hints on pathway names given first character(s). </p>
+                    
+                      <p class="p_image">
+                       <p class="subtitle1"> 2) Advanced Settings </p>
+                     <div id="gallery">
+		<a class="href_replace" href="static/demoimages/advanced_setting.png"  title="Advanced Setting"><img class="src_replace fade" src="static/demoimages/advanced_setting.png" width="100%" height="100%" alt="Advanced Setting"></a>
+		</div>
+						</p>
+                     
+                     <p> Advanced parameters can be specified by clicking the <i>"Setting"</i> button which includes:</p>
+                     <ul>
+                     	<li>
+                     		
+                     		<p> Experiments Types:  	
+                     		Datasets under search can be filtered by setting a filter on experiments types such as ChIP-seq TF, Dnase-seq, GWAS, etc.</p>
+                     	</li>
+                     	<li>
+                     		<p>Data Source: 
+                     		Datasets can also be filtered by setting a filter on  datasoruces such as ArrayExpress, TCGA, GEA, etc.</p>
+                     	
+                     	</li>
+                     </ul>
+</div>
+                      <div class="subtitle">2. An Example of Pathway Search Result</div>
+                     <div class="block_view">
+                    <p class="p_image">
+                      <div id="gallery">
+		<a  class="href_replace" href="static/demoimages/pathway2.png"  title="Pathway Search Example Results"><img class="src_replace fade" src="static/demoimages/pathway2.png" width="100%" height="100%" alt="Pathway Search Example Results"></a>
+						 </div>    
+                  </p>
+                   
+                    <p> This figure shows the search results on apoptotic program. Relevant datasets are returned and ranked as rows including following fields:</p>
+                     <ul>
+                     	<li>
+                     		<p>Rank: This field shows the relevance of the pathway in the dataset. The higher the rank , the more relevant the dataset is considered to the query pathway.</p>
+                     	</li>
+                     	<li>
+                     		<p>DatasetID: The identifier of the dataset.</p>
+                     	</li>
+                     	<li>
+                     		<p>DataType: The experiment type on the dataset.</p>
+                     	</li>
+                     	<li>
+                     		<p>Sample: The experimental sample.</p> 
+                     	</li>
+                     	<li>
+                     		<p>Tissue/status/factor: The experimental tissue.</p> 
+                     	</li>
+                     	<li>
+                     		<p>Average: Average score of all the genes in this pathway.</p>
+                     	</li>
+                     	<li>
+                     		<p>Cumulative: Total scores of all the genes in this pathway.</p>
+                     	</li>
+                     	<li>
+                     	<p>Percentile: Percentile of this pathway among all pathways considered in terms of the cumulative scores.</p>
+                     	</li>
+                     	<li>
+                     	<p>Study: The datasource.</p>
+                     	</li>
+                     	<li>
+                     		<p>Lab: The university/institution which the contributing lab(s) belong to. </p>
+                     	</li>
+                     	<li>
+                     		<p>More Info: Metainformation and links to related information on other websites. </p>
+                     	</li>
+</ul>
+				
+                     </div>
+                     
+                     
+	</div>     
 <%@ include file="../common/footer.jsp"%>
 </body>
 

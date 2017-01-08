@@ -423,7 +423,7 @@
 							</c:forEach>
 						</table>
 					</div>
-					<c:if test="${not empty result.current && !isHistoryResult}">
+				<!--	<c:if test="${not empty result.current && !isHistoryResult}">
 					<div class="row" style="margin-bottom:20px;">
 				      	<div class="span5" id="downloadCurTable" error="<fmt:message key="failed.select"/>">
 				      		<a onclick="downloadSelected(this)" class="btn btn-large"><fmt:message key="button.downloadselect"/></a>
@@ -435,7 +435,7 @@
 				      		<a onclick="saveHistory();" class="btn btn-large"><fmt:message key="button.collection"/></a>
 				      	</div>
 				    </div>
-					</c:if>
+					</c:if> -->
 				</div>
 			</div>
       </div>

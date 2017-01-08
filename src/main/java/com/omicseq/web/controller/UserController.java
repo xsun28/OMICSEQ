@@ -217,8 +217,8 @@ public class UserController extends BaseController {
                 user.setName(temp.getName());
                 user.setUserId(temp.getUserId());
                 user.setUserType(temp.getUserType());
-                temp = userService.update(user);
-                RequestUtils.setAttribute("user", temp);
+                //temp = userService.update(user);
+                RequestUtils.setAttribute("user", user);
             }
             return JsonSuccess(true);
         } catch (Exception e) {

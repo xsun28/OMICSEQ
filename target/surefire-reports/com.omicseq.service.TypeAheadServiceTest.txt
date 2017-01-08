@@ -1,4 +1,0 @@
--------------------------------------------------------------------------------
-Test set: com.omicseq.service.TypeAheadServiceTest
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 37.826 sec

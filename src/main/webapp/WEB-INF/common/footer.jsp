@@ -7,7 +7,7 @@
 	<!-- <span style="padding-left: 100px;">Accredited Testing Organizations: <img style="width: 60px;height: 60px;" alt="Michigan University" title="Michigan University" src="${ctx}/static/images/michigan.jpg"> <img style="width: 60px;height: 60px;" title="Emory University" alt="Emory University" src="${ctx}/static/images/emory.jpg"></span> -->      
 </div>
 <div id="toolBar">
-	<c:if test="${not empty user}">
+<!--	<c:if test="${not empty user}">
 		<div class="historybar">
 			<div class="div1"><img src="${ctx}/static/images/historyicon.png" /><fmt:message key="label.searchhistory"/></div>
 			<div class="div2 expand" id="gethistory"></div>
@@ -32,5 +32,5 @@
 			</div>
 			<div id="historyLoading"></div>
 		</div>
-	</c:if>
+	</c:if> -->
 </div>

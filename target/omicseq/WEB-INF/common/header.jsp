@@ -39,7 +39,7 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
        			  </li>
 			    </ul>
 			  </div>
-			<c:if test="${empty user}">
+		<!---	<c:if test="${empty user}">
 		        <form class="form-signin" role="form" id="loginForm" style="margin:0">
 					  <div class="btn-group navbar-right">
 					    <button type="button" class="btn btn-default" id="loginBtn" onclick="showLoginDialog();" >
@@ -77,16 +77,16 @@ document.write(unescape("%3Cscript src='" + _bdhmProtocol + "hm.baidu.com/h.js%3
 		    </c:if>
 			<c:if test="${not empty user}">
 				
-			</c:if>
+			</c:if> -->
 			<a class="brand" href="${ctx}/welcome.htm"><img id="search_logo" src="${ctx}/static/images/search_logo.png"></a>
 			
 			<div class="nav-collapse collapse">
 				<ul class="nav">
 					<li><a href="${ctx}/welcome.htm"><fmt:message key="menu.home"/></a></li>
 					<li><a href="${ctx}/tutorial.htm"><fmt:message key="menu.tutorial"/></a></li>
-					<li><a href="${ctx}/about.htm"><fmt:message key="menu.about"/></a></li>
+					<!-- <li><a href="${ctx}/about.htm"><fmt:message key="menu.about"/></a></li> -->
 					<li><a href="mailto:zhaohui.qin@emory.edu"><fmt:message key="menu.contact"/></a></li>
-					<li><a href="${ctx}/news.htm"><fmt:message key="menu.news"/></a></li>
+					<!--	<li><a href="${ctx}/news.htm"><fmt:message key="menu.news"/></a></li> -->
 					<!-- <li><a href="http://112.25.20.155:8080/jForum">转到论坛</a></li> -->
 				</ul>
 			</div>
