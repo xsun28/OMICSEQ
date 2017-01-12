@@ -1414,9 +1414,11 @@ function highlightTab(id,isJump)
 						//advanced按钮位置
 						$("#geneAdvanced_div").attr("style","position: absolute;");
 						$("#geneAdvanced_div").css("left",$("#searchForm").position().left);
-						goSearch();
+	changeSettings();					
+	goSearch();
 					}
 					else if(id == 'pathway'){
+						changeSettings();
 						goSearchPathWay();
 					}
 					else if(id == 'multigene'){

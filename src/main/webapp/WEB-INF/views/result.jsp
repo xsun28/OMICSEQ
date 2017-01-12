@@ -566,11 +566,11 @@
 	<div id="loading"></div>
 	<%@ include file="/WEB-INF/common/dialog.jsp"%>
 	<c:if test="${!isHistoryResult}">
-		<a class="open btn btn-primary dialogbutton1" id="dialogbutton1" href="javascript:;" onclick="showDialog(this);" title="MAIN" targetDrag="mainDrag" style="display:block">M</a>
-		<a class="open btn btn-primary dialogbutton2" id="dialogbutton2" href="javascript:;" onclick="showDialog(this);" title="UCSC" targetDrag="ucscDrag" style="display:block">G</a>
+	<!--	<a class="open btn btn-primary dialogbutton1" id="dialogbutton1" href="javascript:;" onclick="showDialog(this);" title="MAIN" targetDrag="mainDrag" style="display:block">M</a>
+		<a class="open btn btn-primary dialogbutton2" id="dialogbutton2" href="javascript:;" onclick="showDialog(this);" title="UCSC" targetDrag="ucscDrag" style="display:block">G</a> -->
 		<a class="open btn btn-primary dialogbutton3" id="dialogbutton3" href="javascript:;" onclick="showDialog(this);" title="Diagram" targetDrag="diagramDrag" style="display:block">D</a>
-		<a class="open btn btn-primary dialogbutton4" id="dialogbutton4" href="javascript:;" onclick="showDialog(this);" title="WordCloud-Factor" targetDrag="WordCloudDrag_Factor" style="display:block;width: 40px;">W-F</a>
-		<a class="open btn btn-primary dialogbutton5" id="dialogbutton5" href="javascript:;" onclick="showDialog(this);" title="WordCloud-CellType" targetDrag="WordCloudDrag_CellType" style="display:block;width: 40px;">W-C</a>
+	<!--	<a class="open btn btn-primary dialogbutton4" id="dialogbutton4" href="javascript:;" onclick="showDialog(this);" title="WordCloud-Factor" targetDrag="WordCloudDrag_Factor" style="display:block;width: 40px;">W-F</a>
+		<a class="open btn btn-primary dialogbutton5" id="dialogbutton5" href="javascript:;" onclick="showDialog(this);" title="WordCloud-CellType" targetDrag="WordCloudDrag_CellType" style="display:block;width: 40px;">W-C</a> -->
 	</c:if>
 	</body>
 </html>

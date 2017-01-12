@@ -542,7 +542,10 @@ public class SampleItem implements java.io.Serializable {
                 if(this.study.equals(SourceType.JASPAR.getDesc())) {
                 	if(str.contains("#@#")) {
                 		//JASPAR link=http://jaspar.genereg.net/cgi-bin/jaspar_db.pl?ID#@#MA0484.1&rm#@#present&collection#@#CORE
-                		String url = str.split("=")[1];
+                		
+                		String url = "";
+				if(str.split("=").length>1)
+                		url = str.split("=")[1];
                 		str = "JASPAR link=<a style#@#'cursor: pointer' href#@#'" + url + "' target#@#'blank'>" + url + "</a>";
                 	}
                 }
