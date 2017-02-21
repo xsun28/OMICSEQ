@@ -1,11 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ include file="/WEB-INF/common/tags.jsp"%>
 
-<div id="footer">
+<!--<div id="footer">
 	<a href="http://www.emory.edu/home/about-this-site/copyright.html" title="Copyright">Copyright</a> © 2014			
 	<a href="http://www.emory.edu/home/index.html" title="OMICSEQ, Inc." target="_blank"><em>Emory University</em></a> - All Rights Reserved | 1518 Clifton Road. Atlanta, Georgia 30322. USA   
 	<!-- <span style="padding-left: 100px;">Accredited Testing Organizations: <img style="width: 60px;height: 60px;" alt="Michigan University" title="Michigan University" src="${ctx}/static/images/michigan.jpg"> <img style="width: 60px;height: 60px;" title="Emory University" alt="Emory University" src="${ctx}/static/images/emory.jpg"></span> -->      
-</div>
+</div> -->
 <div id="toolBar">
 <!--	<c:if test="${not empty user}">
 		<div class="historybar">

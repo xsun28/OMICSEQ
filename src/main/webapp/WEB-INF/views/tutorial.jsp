@@ -135,9 +135,14 @@ p{
                      Omicseq Tutorial 
                       
                        </div>
-                      
+                     <div class="subtitle">
+                      	1. Tutorial Video
+                      </div>
+                      <div class="block_view">
+<iframe width="560" height="315" src="https://www.youtube.com/embed/tfmjh6ADVu0" frameborder="0" allowfullscreen></iframe>   
+</div> 
                       <div class="subtitle">
-                      	1. What is Omicseq?
+                      	2. What is Omicseq?
                       </div>
                        <div class="block_view">
 						   <p id="first-paragraph"> Omicseq is a web portal that serves as an omics data explorer and a search engine. 
@@ -157,7 +162,7 @@ p{
 						   </ul> 
 						</div>	
                     
-                        <div class="subtitle">2. Gene Search Interface</div>
+                        <div class="subtitle">3. Gene Search Interface</div>
                     <div class="block_view">
                     
                     <p class="p_image">
@@ -240,7 +245,7 @@ p{
 				
                      </div>
                      
-                      <div class="subtitle">3. Pathway Search Interface</div>
+                      <div class="subtitle">4. Pathway Search Interface</div>
                     <div class="block_view">
                     
                     <p class="p_image">
@@ -273,7 +278,7 @@ p{
                      	</li>
                      </ul>
 </div>
-                      <div class="subtitle">2. An Example of Pathway Search Result</div>
+                      <div class="subtitle">4. An Example of Pathway Search Result</div>
                      <div class="block_view">
                     <p class="p_image">
                       <div id="gallery">
