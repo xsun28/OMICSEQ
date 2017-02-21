@@ -744,6 +744,7 @@ function hiddenNames() {
 			<div class="settingItem">&nbsp;</div>
 			<div class="controls" style="float: left;width: 100%;">
 				<c:forEach items="${settingDTO.experimentsMap}" var="experiment">
+<c:if test="${experiment.key != 'Supplementary Track' && experiment.key != 'RIP-seq' && experiment.key != 'RNA-seq-diff'}">
 					<div class="settingItem">
 						<input type="checkbox" value="${experiment.key}" name="experiments" <c:if test="${experiment.value == 'true'}">checked="checked"</c:if>/>
 						<label>${experiment.key}
@@ -753,7 +754,8 @@ function hiddenNames() {
 						</label>
 					</div>
 					<c:if test="${experiment.key == 'Summary Track'}"><div class="settingItem">&nbsp;</div></c:if>
-				</c:forEach>
+	</c:if>			
+	</c:forEach>
 			</div>				 
 	  	</div>	
 		<%-- <div class="control-group">

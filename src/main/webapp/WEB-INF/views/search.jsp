@@ -786,6 +786,7 @@ $(document).ready(function(){
 				<c:forEach items="${settingDTO.experimentsMap}" var="experiment">
 					<c:forEach items="${sampleSumMap}" var="sampleSum">
 						<c:if test="${sampleSum.key == experiment.key && sampleSum.value != null}">
+<c:if test="${experiment.key != 'Supplementary Track' && experiment.key != 'RIP-seq' && experiment.key != 'RNA-seq-diff'}">
 							<div class="settingItem">
 								<input type="checkbox" value="${experiment.key}" name="experiments" <c:if test="${experiment.value == 'true'}">checked="checked"</c:if>/>
 								<label>
@@ -793,6 +794,7 @@ $(document).ready(function(){
 								</label>
 							</div>
 							<c:if test="${experiment.key == 'Summary Track'}"><div class="settingItem">&nbsp;</div></c:if>
+</c:if>
 						</c:if>
 					</c:forEach>
 				</c:forEach>
