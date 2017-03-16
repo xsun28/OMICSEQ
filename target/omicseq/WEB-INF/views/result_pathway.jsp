@@ -349,12 +349,25 @@
 											</li>
 											<li><a class="btn btn-mini" target="_blank" href="${item.pubMedUrl }">PubMed</a></li>
 											<li><a class="btn btn-mini" target="_blank" href="${item.geoUrl }">GEO</a></li>
-											<li><a class="btn btn-mini" href="${item.url }"><i class="icon-download-alt"></i>Download</a></li>
+									<!--		<li><a class="btn btn-mini" href="${item.url }"><i class="icon-download-alt"></i>Download</a></li> -->
 										</ul>
 									</td>
 								</tr>
 							</c:forEach>
 						</table>
+					</div>
+<div class="row paginateWrap">
+						<c:if test="${page == 1}"><span href="javascript:;" class="inactive paginatebtn"><fmt:message key="button.previous"/></span></c:if>
+						<c:if test="${page gt 1}"><a href="javascript:;" class="paginatebtn" onclick="prevPage_pathWay();"><fmt:message key="button.previous"/></a></c:if>
+						<c:if test="${totalPage == 0 }">
+							<a href="javascript:;" class="inactive">1</a> 
+						</c:if>
+						<c:forEach var="aPage" begin="${beginPage}"  end="${endPage}">
+							<span href="javascript:;" <c:if test="${page eq aPage}">class="current paginate"</c:if> <c:if test="${page != aPage}">class="paginate pathWay"</c:if>
+								title="Go to page ${aPage } of ${totalPage }">${aPage }</span> 	
+						</c:forEach>
+						<c:if test="${page == totalPage || totalPage == 0}"><span href="javascript:;" class="inactive paginatebtn"><fmt:message key="button.next"/></span></c:if>
+						<c:if test="${page lt totalPage}"><a href="javascript:;" class="paginatebtn" onclick="nextPage_pathWay();"><fmt:message key="button.next"/></a></c:if>
 					</div>
 			<!--		<c:if test="${not empty result.current && !isHistoryResult}">
 					<div class="row" style="margin-bottom:20px;">

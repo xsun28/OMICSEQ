@@ -3,6 +3,8 @@ package com.omicseq.web.controller;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
@@ -1079,6 +1081,12 @@ public class HomeController extends BaseController {
 		List<PathWay> result = new ArrayList<PathWay>();
 		String key = (String) RequestUtils.getRequest().getParameter("term");
 		result = pathWaySearchService.searchByFirstCharactor(key);
+		Collections.sort(result, new Comparator<PathWay>(){
+		@Override
+		public int compare(PathWay a, PathWay b){
+				return a.getPathwayName().compareTo(b.getPathwayName());
+			}
+		});
 		return result.toArray();
 	}
 	

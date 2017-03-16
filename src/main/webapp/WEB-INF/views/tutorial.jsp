@@ -94,7 +94,18 @@ p{
 		margin-bottom: 0;
 		color:mediumpurple;
 	}
-	
+.color-table  {
+
+        display: inline-block;
+                width:18%;
+		margin: 0 2em 0 2em;
+        }
+        .color-text {
+         text-align: center;
+        }
+        .color-table tr td{
+        boder: 2px solid black;
+        }	
 	</style>
  
     <!-- jQuery -->
@@ -242,7 +253,106 @@ p{
                      </ul>
                       <p> For this example, as we can see, vast majority of the top ranked datasets are RNA-seq data collected from prostate cancer patients in the TCGA study. In almost all these datasets, klk3 gene shows up as the highest expressed gene in the entire genome, which speaks volume of its prominence as the biomarker for prostate cancer. 
 					</p>
-				
+			<P> Note: colors are used on Data Type and Study columns to indicate categories. Please refer to the following color table</P>
+						
+						<table class ="color-table" >
+						<tr>
+						<th>Color</th>
+						<th>Data Types</th>
+						</tr>
+						<tr>
+						
+						<td style="background-color:#fcfeb8"></td>
+						<td class="color-text" >ChIP-seq</td>
+						</tr>
+						<tr>
+						
+						<td style="background-color:#fdc7c7"></td>
+						<td class="color-text" >RNA-seq</td>
+						</tr>
+						<tr>
+						
+						<td style="background-color:#B0E0E6"></td>
+						<td class="color-text" >CNV</td>
+						</tr>
+						<tr>
+						
+						<td style="background-color:#858EFA"></td>
+						<td class="color-text" >Methylation</td>
+						</tr>
+						<tr>
+						
+						<td style="background-color:#8C8D8A"></td>
+						<td class="color-text" >Microarray</td>
+						</tr>
+						<tr>
+						
+						<td style="background-color:#A6D377"></td>
+						<td class="color-text" >Dnase-seq</td>
+						</tr><tr>
+						
+						<td style="background-color:#AEE640"></td>
+						<td class="color-text" >Summary Track</td>
+						</tr><tr>
+						
+						<td style="background-color:#4292D1"></td>
+						<td class="color-text" >Somatic Mutations</td>
+						</tr>
+						</table>
+						
+						
+						<table class ="color-table" >
+						<tr>
+						<th>Color</th>
+						<th>Studies</th>
+						</tr>
+						<tr>
+						
+						<td style="background-color:#fcfeb8"></td>
+						<td class="color-text" >ENCODE</td>
+						</tr>
+						<tr>
+						
+						<td style="background-color:#fdc7c7"></td>
+						<td class="color-text" >TCGA</td>
+						</tr>
+						<tr>
+						
+						<td style="background-color:#FA7777"></td>
+						<td class="color-text" >TCGA Firebrowse</td>
+						</tr>
+						<tr>
+						
+						<td style="background-color:#caef90"></td>
+						<td class="color-text" >ICGC</td>
+						</tr>
+						<tr>
+						
+						<td style="background-color:#eedded"></td>
+						<td class="color-text" >SRA</td>
+						</tr>
+						<tr>
+						
+						<td style="background-color:#d7eaf8"></td>
+						<td class="color-text" >Epigenome Roadmap</td>
+						</tr><tr>
+						
+						<td style="background-color:#B2B2C2"></td>
+						<td class="color-text" >GEO</td>
+						</tr><tr>
+						
+						<td style="background-color:#9F80A0"></td>
+						<td class="color-text" >CCLE</td>
+						</tr><tr>
+						
+						<td style="background-color:#47D892"></td>
+						<td class="color-text" >SUMMARY</td>
+						</tr><tr>
+						
+						<td style="background-color:#D8C647"></td>
+						<td class="color-text" >ArrayExpress</td>
+						</tr>
+						</table>	
                      </div>
                      
                       <div class="subtitle">4. Pathway Search Interface</div>
@@ -322,7 +432,93 @@ p{
                      		<p>More Info: Metainformation and links to related information on other websites. </p>
                      	</li>
 </ul>
-				
+				 <P> Note: colors are used on Data Type and Study columns to indicate categories. Please refer to the following color table</P>
+						
+						<table class ="color-table" >
+						<tr>
+						<th>Color</th>
+						<th>Data Types</th>
+						</tr>
+						<tr>
+						
+						<td style="background-color:#fcfeb8"></td>
+						<td class="color-text" >ChIP-seq</td>
+						</tr>
+						<tr>
+						
+						<td style="background-color:#fdc7c7"></td>
+						<td class="color-text" >RNA-seq</td>
+						</tr>
+						<tr>
+						
+						<td style="background-color:#B0E0E6"></td>
+						<td class="color-text" >CNV</td>
+						</tr>
+						<tr>
+						
+						<td style="background-color:#858EFA"></td>
+						<td class="color-text" >Methylation</td>
+						</tr>
+						<tr>
+						
+						<td style="background-color:#8C8D8A"></td>
+						<td class="color-text" >Microarray</td>
+						</tr>
+						<tr>
+						
+						<td style="background-color:#A6D377"></td>
+						<td class="color-text" >Dnase-seq</td>
+						</tr><tr>
+						
+						<td style="background-color:#AEE640"></td>
+						<td class="color-text" >Summary Track</td>
+						</tr><tr>
+						
+						<td style="background-color:#4292D1"></td>
+						<td class="color-text" >Somatic Mutations</td>
+						</tr>
+						</table>
+						<table class ="color-table" >
+						
+						<tr>
+						<th>Color</th>
+						<th>Studies</th>
+						</tr>
+						<tr>
+						
+						<td style="background-color:#fcfeb8"></td>
+						<td class="color-text" >ENCODE</td>
+						</tr>
+						<tr>
+						
+						<td style="background-color:#fdc7c7"></td>
+						<td class="color-text" >TCGA</td>
+						</tr>
+						
+						<tr>
+						
+						<td style="background-color:#caef90"></td>
+						<td class="color-text" >ICGC</td>
+						</tr>
+						<tr>
+						
+						<td style="background-color:#eedded"></td>
+						<td class="color-text" >SRA</td>
+						</tr>
+						<tr>
+						
+						<td style="background-color:#d7eaf8"></td>
+						<td class="color-text" >Epigenome Roadmap</td>
+						</tr><tr>
+						
+						<td style="background-color:#B2B2C2"></td>
+						<td class="color-text" >GEO</td>
+						</tr>
+						<tr>
+						<td style="background-color:#9F80A0"></td>
+						<td class="color-text" >CCLE</td>
+						</tr>
+						</table>
                      </div>
                      
                      

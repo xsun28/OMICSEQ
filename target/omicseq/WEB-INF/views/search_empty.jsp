@@ -371,7 +371,7 @@ function hiddenNames() {
 				<div class="input-prepend input-append" id="searchbar">
 					<span class="input-group-addon">
 				        <!-- <input name="version" id="version18" value="18" type="radio"><span>hg18</span> -->
-				        <input value="19" checked="checked" type="radio"><span>hg19</span>
+				        <input value="19" checked="checked" type="radio"><span>human</span>
 				    </span>
 				    <input type="hidden" id="currentPathwayName" value="">
 					<input id="searchForm_pathWay" value="" class="input-large search-query ac_input" autocomplete="off" placeholder="<fmt:message key="placeholder.keywords"/>" required="" type="text">
@@ -744,6 +744,7 @@ function hiddenNames() {
 			<div class="settingItem">&nbsp;</div>
 			<div class="controls" style="float: left;width: 100%;">
 				<c:forEach items="${settingDTO.experimentsMap}" var="experiment">
+<c:if test="${experiment.key != 'Supplementary Track' && experiment.key != 'RIP-seq' && experiment.key != 'RNA-seq-diff'}">
 					<div class="settingItem">
 						<input type="checkbox" value="${experiment.key}" name="experiments" <c:if test="${experiment.value == 'true'}">checked="checked"</c:if>/>
 						<label>${experiment.key}
@@ -753,7 +754,8 @@ function hiddenNames() {
 						</label>
 					</div>
 					<c:if test="${experiment.key == 'Summary Track'}"><div class="settingItem">&nbsp;</div></c:if>
-				</c:forEach>
+	</c:if>			
+	</c:forEach>
 			</div>				 
 	  	</div>	
 		<%-- <div class="control-group">

@@ -157,6 +157,7 @@ com/omicseq/domain/ICGCSample.class
 com/omicseq/message/MemMessageProducer.class
 com/omicseq/pathway/CalculatePathWayGeneRanks4.class
 com/omicseq/web/service/ISearchHistoryService.class
+com/omicseq/web/controller/HomeController$1.class
 com/omicseq/robot/process/ICGCProcess$3.class
 com/omicseq/core/batch/GeneWordCloud.class
 com/omicseq/store/daoimpl/mongodb/CommentDAO.class
