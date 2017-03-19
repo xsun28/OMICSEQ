@@ -719,11 +719,13 @@ public class HomeController extends BaseController {
 				experimentsList.add(exp);
 			}
 		}
+		request.getSession().setAttribute("experimentsList", experimentsList);
 		for (String source : settingDTO.getSourcesMap().keySet()) {
 			if (settingDTO.getSourcesMap().get(source)) {
 				sourceList.add(source);
 			}
 		}
+		request.getSession().setAttribute("sourcesList", sourceList);
 		SampleResult result = new SampleResult();
 		// 判断是否是点击搜索结果
 		Integer start = (page - 1) * pageSize;

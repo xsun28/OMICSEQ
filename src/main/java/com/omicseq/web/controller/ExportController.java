@@ -8,6 +8,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import javax.servlet.ServletOutputStream;
 import javax.servlet.http.HttpServletRequest;
@@ -29,6 +31,7 @@ import org.springframework.web.bind.ServletRequestUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.omicseq.common.Charsets;
+import com.omicseq.common.SortType;
 import com.omicseq.core.GeneCache;
 import com.omicseq.core.PropertiesHolder;
 import com.omicseq.core.batch.GeneRankExport;
@@ -66,6 +69,16 @@ public class ExportController extends BaseController {
         String sdate = DateUtils.format(new Date(), "yyyyMMdd");
         return String.format("%s_%s_%s", term, sdate, isAll ? "all" : "select");
     }
+  private String makeFileName_pathway(String pathwayname, HttpServletRequest req) {
+        String term = ServletRequestUtils.getStringParameter(req, "term", "pathway");
+        boolean isAll = null != pathwayname;
+        if (isAll && StringUtils.isBlank(term)) {
+            
+        }
+        String sdate = DateUtils.format(new Date(), "yyyyMMdd");
+        return String.format("%s_%s_%s", term, sdate, isAll ? "all" : "select");
+    }
+
     @RequestMapping("csv.htm")
     public void cvs(Integer geneId, HttpServletRequest req, HttpServletResponse res) throws IOException {
         String fname = makeFileName(geneId, req);
@@ -137,11 +150,15 @@ public class ExportController extends BaseController {
                 rownum++;
             }
             String[] items = data.split(";");
+		Pattern pattern = Pattern.compile("\\D+");
             for (String item : items) {
                 String[] arr = item.split("@");
                 Row row = st.createRow(rownum);
                 for (int i = 0; i < arr.length; i++) {
-                    if(i==6 || i==7 || i==8) {
+                   
+                	Matcher matcher = pattern.matcher(arr[i]);
+                	boolean nondigit = matcher.find();
+			if((i==6 || i==7 || i==8)&&!nondigit) {
                 		CellStyle styleDouble = wb.createCellStyle();
                 		DataFormat formatDouble = wb.createDataFormat();  
                 		styleDouble.setDataFormat(formatDouble.getFormat("#,##0.0000000"));  
@@ -161,7 +178,7 @@ public class ExportController extends BaseController {
             }
             wb.write(out);
         } else {
-            String fpath = "http://112.25.20.156/export/so_e/" + geneId + ".xlsx";
+            String fpath = "http://34.193.180.92/export/so_e/" + geneId + ".xlsx";
             try {
                 URL url = new URL(fpath);
                 InputStream is = url.openStream();
@@ -171,7 +188,7 @@ public class ExportController extends BaseController {
                     out.write(b, 0, len);
                 }
             } catch (Exception e1) {
-            	fpath = "http://112.25.20.156/export/so_e/" + geneId + ".csv";
+            	fpath = "http://34.193.180.92/export/so_e/" + geneId + ".csv";
             	try {
                     URL url = new URL(fpath);
                     InputStream is = url.openStream();
@@ -186,10 +203,79 @@ public class ExportController extends BaseController {
                     }
                     GeneRankCriteria criteria = new GeneRankCriteria();
                     criteria.setGeneId(geneId);
-                    XSSFWorkbook wb = GeneRankExport.getInstance().buildWorkbook(criteria);
+                    criteria.setSortType(SortType.ASC);
+		    XSSFWorkbook wb = GeneRankExport.getInstance().buildWorkbook(criteria);
                     wb.write(out);
                 }
             }
+        }
+        out.flush();
+        out.close();
+    }
+
+  @RequestMapping("pathway_xlsx.htm")
+    public void pathway_xlsx(String pathwayName, HttpServletRequest req, HttpServletResponse res) throws Exception {
+    	
+    	String fname = makeFileName_pathway(pathwayName, req);
+      
+        res.setHeader("Content-Disposition", "attachment;filename=\"" + fname + ".csv\"");
+        
+        res.setContentType("application/vnd.openxmlformats-officedocument.spreadsheetml.sheet");
+        
+        res.setCharacterEncoding(Charsets.UTF_8.displayName());
+        ServletOutputStream out = res.getOutputStream();
+        if (null == pathwayName) {
+           
+            String headers = (String) req.getParameter("headers");
+            String data = (String) req.getParameter("data").replaceAll("\\$", "#");
+            Workbook wb = new XSSFWorkbook();
+            Sheet st = wb.createSheet();
+            int rownum = 0;
+            String[] titles = null;
+            if (StringUtils.isNotEmpty(headers)) {
+                Row row = st.createRow(rownum);
+                titles = headers.split(",");
+                for (int i = 0; i < titles.length; i++) {
+                    CellUtil.createCell(row, i, titles[i]);
+                }
+                rownum++;
+            }
+            String[] items = data.split(";");
+            for (String item : items) {
+                String[] arr = item.split("@");
+                Row row = st.createRow(rownum);
+                for (int i = 0; i < arr.length; i++) {
+                	Pattern pattern = Pattern.compile("\\D+");
+                	Matcher matcher = pattern.matcher(arr[i]);
+                	boolean nondigit = matcher.find();
+                    if((i==6 || i==7 || i==8) &&!nondigit) {
+                		CellStyle styleDouble = wb.createCellStyle();
+                		DataFormat formatDouble = wb.createDataFormat();  
+                		System.err.println("array "+i+" is "+arr[i]);
+                		styleDouble.setDataFormat(formatDouble.getFormat("#,##0.0000000"));  
+                		Cell cell = row.createCell(i);
+                		cell.setCellStyle(styleDouble);
+                		cell.setCellValue(Double.parseDouble((arr[i] == null || "".equals(arr[i]))?"1":arr[i]));
+                	} else {
+                		CellUtil.createCell(row, i, arr[i]);
+                	}
+                }
+                rownum++;
+            }
+            if (null != titles) {
+                for (int i = 0; i < titles.length; i++) {
+                    st.autoSizeColumn(i);
+                }
+            }
+            wb.write(out);
+        } else {
+        	List<String> experimentsList = (ArrayList<String>)req.getSession().getAttribute("experimentsList");
+        	
+        	List<String> sourceList = (ArrayList<String>)req.getSession().getAttribute("sourcesList");
+        
+                    XSSFWorkbook wb = GeneRankExport.getInstance().buildWorkbook_pathway(pathwayName,experimentsList,sourceList);
+                    wb.write(out);
+
         }
         out.flush();
         out.close();

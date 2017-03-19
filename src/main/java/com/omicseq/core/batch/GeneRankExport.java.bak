@@ -20,7 +20,6 @@ import java.util.concurrent.Semaphore;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.collections4.CollectionUtils;
-import org.apache.commons.collections4.comparators.ComparatorChain;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang3.StringUtils;
@@ -38,6 +37,7 @@ import org.apache.poi.xssf.usermodel.XSSFRow;
 import org.apache.poi.xssf.usermodel.XSSFSheet;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 import org.joda.time.DateTime;
+import org.apache.commons.collections4.comparators.ComparatorChain;
 
 import com.omicseq.bean.SampleItem;
 import com.omicseq.common.Constants;
@@ -57,27 +57,19 @@ import com.omicseq.domain.MiRNARank;
 import com.omicseq.domain.MiRNASample;
 import com.omicseq.domain.Sample;
 import com.omicseq.domain.TxrRef;
-import com.omicseq.pathway.PathWay;
 import com.omicseq.pathway.PathWaySample;
-import com.omicseq.statistic.ComparatorFactory;
 import com.omicseq.store.criteria.GeneRankCriteria;
-import com.omicseq.store.dao.IPathWayDAO;
-import com.omicseq.store.dao.IPathWaySampleDAO;
 import com.omicseq.store.dao.ISampleDAO;
 import com.omicseq.store.daoimpl.factory.DAOFactory;
 import com.omicseq.store.daoimpl.mongodb.SmartDBObject;
 import com.omicseq.store.helper.MongodbHelper;
 import com.omicseq.utils.DateTimeUtils;
-import com.omicseq.utils.MathUtils;
-import com.omicseq.web.serviceimpl.SampleSearchServiceHelper;
+import com.omicseq.statistic.ComparatorFactory;
 
 public class GeneRankExport extends BaseGeneRankBatch {
     private static GeneRankExport single = new GeneRankExport();
     private static ISampleDAO sampleDAO = DAOFactory.getDAOByTableType(ISampleDAO.class, Constants.STAT_SUFFIX);
-    private IPathWaySampleDAO pathWaySampleDAO = DAOFactory.getDAO(IPathWaySampleDAO.class);
-    private IPathWayDAO pathWayDAO = DAOFactory.getDAO(IPathWayDAO.class);
-    
-    private SampleSearchServiceHelper sampleSearchServiceHelper = new SampleSearchServiceHelper();
+
     private GeneRankExport() {
     }
 
@@ -157,9 +149,9 @@ public class GeneRankExport extends BaseGeneRankBatch {
             CellUtil.createCell(header, i, arr[i]);
         }
         List<GeneRank> ranks = geneRankDAO.findByCriteria(criteria);
-        SortType sortType = criteria.getSortType();
+         SortType sortType = criteria.getSortType();
         sortGeneRank(ranks,sortType);
-        for (int i = 0; i < ranks.size(); i++) {
+	for (int i = 0; i < ranks.size(); i++) {
             GeneRank geneRank = ranks.get(i);
             Sample sample = SampleCache.getInstance().getSampleById(geneRank.getSampleId());
             if (null == sample) {
@@ -208,8 +200,8 @@ public class GeneRankExport extends BaseGeneRankBatch {
         }
         return wb;
     }
-    
-	private void sortGeneRank(List<GeneRank> GeneRankList, SortType sortType) {
+
+    private void sortGeneRank(List<GeneRank> GeneRankList, SortType sortType) {
 		List<Comparator<GeneRank>> comparatorList = new ArrayList<Comparator<GeneRank>>();
 		comparatorList.add(ComparatorFactory.getMixtureComparator2(sortType));
 		comparatorList.add(ComparatorFactory.getTssTesCountComparator2());
@@ -217,8 +209,6 @@ public class GeneRankExport extends BaseGeneRankBatch {
 		comparatorList.add(ComparatorFactory.getCacheSampleIdComparator2());
 		Collections.sort(GeneRankList, new ComparatorChain(comparatorList));
 	}
-    
-    
     public void expXlsx(GeneRankCriteria criteria) {
         String fname = criteria.generateKey(GeneRankCriteria.XLSXFileTempalte);
 //    	String fname = criteria.generateKey("miRNA_" + GeneRankCriteria.XLSXFileTempalte);
@@ -321,7 +311,6 @@ public class GeneRankExport extends BaseGeneRankBatch {
         arr[11] = StringUtils.trimToEmpty(item.getLab());
         return arr;
     }
-    
     
    
     private String column(String str) {
@@ -1082,132 +1071,6 @@ public class GeneRankExport extends BaseGeneRankBatch {
         }
         return wb;
     }
-    
-    public XSSFWorkbook buildWorkbook_pathway(String pathwayName,List<String>experimentsList, List<String> sourceList) {
-    	PathWay pathWay = pathWayDAO.findOne(pathwayName);
-		List<Integer> intSourceList = sampleSearchServiceHelper.toSourceTypies(sourceList);
-        List<Integer> intEtypeList = sampleSearchServiceHelper.toEtypies(experimentsList);
-        SmartDBObject query = new SmartDBObject("pathId", pathWay.getPathId());
-		if (CollectionUtils.isNotEmpty(sourceList)) {
-            query = MongodbHelper.and(query, MongodbHelper.in("source", intSourceList.toArray()));
-        }
-        if (CollectionUtils.isNotEmpty(experimentsList)) {
-            query = MongodbHelper.and(query, MongodbHelper.in("etype", intEtypeList.toArray()));
-        }
-        query.addSort("rank", SortType.ASC);
-		List<PathWaySample> pathWaySampleList = pathWaySampleDAO.find(query);
-		List<SampleItem> sampleItemList = new ArrayList<SampleItem>();
-        for(PathWaySample ps : pathWaySampleList)
-        {	
-        	Sample sample = SampleCache.getInstance().getSampleById(ps.getSampleId());
-            if (sample == null) {
-                logger.warn(" can't find sample for id : " + ps.getSampleId());
-                continue;
-            }
-            
-            SampleItem sampleItem = new SampleItem(sample, null, null, 0.0, 0.0, null, false, null, 0.0, 0.0);
-            //去除cell中#号 ，避免导出异常
-            if(sampleItem.getCell() != null) {
-            	if(sampleItem.getCell().contains("#")){
-                	String cell = sampleItem.getCell().split("#")[0];
-                	sampleItem.setCell(cell);
-                }
-            }
-            
-         // 保留三位小数
-            DecimalFormat df = new DecimalFormat("0.000");
-            
-            sampleItem.setMixturePerc(MathUtils.floor(ps.getAvgA()*100)); //实验数据对应该基因组的平均percentile
-            sampleItem.setPercentileFormat(df.format(ps.getRank()*100));
-            sampleItem.setTssTesCount(Math.abs(ps.getB()));
-//            sampleItem.setPathwayOfRank(ps.getRank());
-            
-            sampleItemList.add(sampleItem);
-        }
-		DateTime dt = DateTime.now();
-	    XSSFWorkbook wb = new XSSFWorkbook();
-	        
-	    XSSFSheet st = wb.createSheet("sheet1");
-	    XSSFCellStyle styleDouble = wb.createCellStyle();
-	    XSSFDataFormat formatDouble = wb.createDataFormat();  
-	    styleDouble.setDataFormat(formatDouble.getFormat("#,##0.00000")); 
-			
-		XSSFRow header = st.createRow(0);
-	    String[] arr = "Rank,DataSetID,DataType, Cell,Factor,Detail,Count,Percentile(%),tssTesCount,tss5KCount,Study,Lab".split(",");
-	    for (int i = 0; i < arr.length; i++) {
-	        CellUtil.createCell(header, i, arr[i]);
-	     }
-         for (int i = 0; i < sampleItemList.size(); i++) {
-             SampleItem sampleItem = sampleItemList.get(i);
-             int idx = i + 1;
-             XSSFRow row = st.createRow(idx);
-             String[] _arr = toArrayPathway(idx, sampleItem);
-             for (int j = 0; j < _arr.length; j++) {
-             	if(j==7 || j==8 || j==9) {
-             		XSSFCell cell = row.createCell(j);
-             		cell.setCellStyle(styleDouble);
-             		cell.setCellValue(Double.parseDouble((_arr[j] == null || "".equals(_arr[j]))?"1":_arr[j]));
-             	} else {
-             		CellUtil.createCell(row, j, _arr[j]);
-             	}
-             }
-         }
-         
-         XSSFSheet st2 = wb.createSheet("sheet2");
-         XSSFRow header2 = st2.createRow(0);
-         CellUtil.createCell(header2, 0, "tssTesCount Remark");
-         CellUtil.createCell(header2, 1, "TSS5K_COUN Remark");
-         
-         XSSFRow row2 = st2.createRow(1);
-         CellUtil.createCell(row2, 0, "statistic Read of this dataset in GeneBody,get the sample_readcount,because every GeneBody's length is not same,TSSTES_COUNT=sample_readcount/len(Genebody)。");
-         CellUtil.createCell(row2, 1, "statistic Read of this dataset in Promoter，get the sample_readcount，it will be normalized and then TSS5K_COUNT=sample_readcount/10000");
-         
-         XSSFRow row3 = st2.createRow(2);
-         CellUtil.createCell(row3, 0, "If this dataset contains INPUT, deal TSSTES_COUNT\n first to get sample and input TSSTES_COUNT，then exclude TSSTES_COUNT of INPUT as :sample_readcount-(input_readcount*inputtotalread/sampletotalread)");
-         
-         XSSFRow row4 = st2.createRow(3);
-         CellUtil.createCell(row4, 0, "TCGA Assemble Of CNV ExperimentType\n COUNT_CNV=  log_2⁡(sample_readcount/2)");
-         
-         XSSFRow row5 = st2.createRow(4);
-         CellUtil.createCell(row5, 0, "TCGA Assemble Of RNA-seq ExperimentType tssTesCount uesed experimental_protocol Of RPKM\nICGC Assemble of RNA-seq ExperimentType tssTesCount uesed experimental_protocol Of RSEM");
-         
-         for (int i = 0; i < arr.length; i++) {
-             st.autoSizeColumn(i);
-         }
-         if (logger.isDebugEnabled()) {
-             logger.debug("生成Excel文件,用时:{}", DateTimeUtils.used(dt));
-         }
-         return wb;
-     }
-    
-    private String[] toArrayPathway(int idx, SampleItem item) {
-        // "Rank,DataSetID,DataType, Cell,Factor,Order/Total,Percentile(%),Study,Lab"
-        String[] arr = new String[12];
-        // Rank
-        arr[0] = String.valueOf(idx);
-        // DataSetID
-        arr[1] = String.valueOf(item.getSampleId());
-        // DataType
-        arr[2] = StringUtils.trimToEmpty(item.getDataType());
-        // Cell
-        arr[3] = StringUtils.trimToEmpty(item.getCell());
-        // Factor
-        arr[4] = StringUtils.trimToEmpty(item.getFactor());
-        //Detail
-        arr[5] = StringUtils.trimToEmpty(item.getDetail());
-        //count
-        arr[6] = StringUtils.trimToEmpty(String.valueOf(item.getTssCount()));
-        // Percentile(%)
-        arr[7] = StringUtils.trimToEmpty(item.getPercentileFormat());
-        //tssTesCount
-        arr[8] = StringUtils.trimToEmpty(String.valueOf(item.getTssTesCount()));
-        //tss5KCount
-        arr[9] = StringUtils.trimToEmpty(String.valueOf(item.getTssCount()));
-        // Study
-        arr[10] = StringUtils.trimToEmpty(item.getStudy());
-        // Lab
-        arr[11] = StringUtils.trimToEmpty(item.getLab());
-        return arr;
-    }
+
     
 }

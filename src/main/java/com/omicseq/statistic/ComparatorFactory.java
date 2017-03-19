@@ -93,7 +93,20 @@ public class ComparatorFactory {
 			}
 		};
 	}
-	
+        
+	public static Comparator<GeneRank> getCacheSampleIdComparator2() {
+		return new Comparator<GeneRank>() {
+			@Override
+			public int compare(GeneRank o1, GeneRank o2) {
+				if (null != o1.getSampleId() && null != o2.getSampleId()) {
+					return o1.getSampleId().compareTo(o2.getSampleId());
+				} else {
+					return 0;
+				}
+			}
+		};
+	}
+		
 	public static Comparator<CacheGeneRank> getTssTesCountComparator() {
 		return new Comparator<CacheGeneRank>() {
 			@Override
@@ -121,6 +134,19 @@ public class ComparatorFactory {
 		return new Comparator<CacheGeneRank>() {
 			@Override
 			public int compare(CacheGeneRank o1, CacheGeneRank o2) {
+				if (null != o1.getEtype() && null != o2.getEtype()) {
+					return o1.getEtype().compareTo(o2.getEtype());
+				} else {
+					return 0;
+				}
+			}
+		};
+	}
+	
+		public static Comparator<GeneRank> getExperimentTypeComparator2() {
+		return new Comparator<GeneRank>() {
+			@Override
+			public int compare(GeneRank o1, GeneRank o2) {
 				if (null != o1.getEtype() && null != o2.getEtype()) {
 					return o1.getEtype().compareTo(o2.getEtype());
 				} else {

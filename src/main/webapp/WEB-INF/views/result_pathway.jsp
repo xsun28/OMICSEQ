@@ -338,7 +338,10 @@
 											<c:if test="${item.study == 'GEO'}">#B2B2C2</c:if>
 											<c:if test="${item.study == 'CCLE'}">#9F80A0</c:if>"	
 									>${item.study }</td>
-									<td class="lab" title="${item.lab}">${item.lab}</td>
+									<td class="lab" title="${item.lab}">
+										<c:if test="${item.lab == 'Serendi'}">Omicseq</c:if>
+                                                                                <c:if test="${item.lab != 'Serendi'}">${item.lab}</c:if>
+									</td>
 									<%-- <td class="submitTile" title="${item.timeStamp }">${item.timeStamp }</td> --%>
 									<td align="left">
 										<ul class="inline">
@@ -349,8 +352,11 @@
 											</li>
 											<li><a class="btn btn-mini" target="_blank" href="${item.pubMedUrl }">PubMed</a></li>
 											<li><a class="btn btn-mini" target="_blank" href="${item.geoUrl }">GEO</a></li>
-									<!--		<li><a class="btn btn-mini" href="${item.url }"><i class="icon-download-alt"></i>Download</a></li> -->
-										</ul>
+									<c:if test = "${item.study != 'JASPAR' && item.study != 'TCGA' && item.study != 'GEO' 
+											&& item.study != 'TCGA Firebrowse' && item.study != 'GEO' && item.study != 'ICGC'}" > 
+											<li><a class="btn btn-mini" href="${item.url }" target="_blank"><i class="icon-download-alt"></i>Download</a></li>
+											</c:if> 	
+									</ul>
 									</td>
 								</tr>
 							</c:forEach>
@@ -369,19 +375,19 @@
 						<c:if test="${page == totalPage || totalPage == 0}"><span href="javascript:;" class="inactive paginatebtn"><fmt:message key="button.next"/></span></c:if>
 						<c:if test="${page lt totalPage}"><a href="javascript:;" class="paginatebtn" onclick="nextPage_pathWay();"><fmt:message key="button.next"/></a></c:if>
 					</div>
-			<!--		<c:if test="${not empty result.current && !isHistoryResult}">
+					<c:if test="${not empty result.current && !isHistoryResult}">
 					<div class="row" style="margin-bottom:20px;">
 				      	<div class="span5" id="downloadCurTable" error="<fmt:message key="failed.select"/>">
 				      		<a onclick="downloadSelected(this)" class="btn btn-large"><fmt:message key="button.downloadselect"/></a>
 				      	</div>
 				      	<div class="span5" id="downloadCurTable">
-				      		<a class="btn btn-large" href="${ctx}/export/xlsx.htm?geneId=${result.current.geneId}&term=${searchGene}"><fmt:message key="button.downloadall"/></a>
-				      	</div>
-				      	<div class="span5" id="collect">
+				     	<a class="btn btn-large" href="${ctx}/export/pathway_xlsx.htm?pathwayName=${pathwayName}&term=${pathwayName}"><fmt:message key="button.downloadall"/></a>
+					</div>
+				  <!--    	<div class="span5" id="collect">
 				      		<a onclick="saveHistory();" class="btn btn-large"><fmt:message key="button.collection"/></a>
-				      	</div>
-				    </div>
-					</c:if>  -->
+				      	</div> -->
+				    </div> 
+					</c:if>
 				</div>
 			</div>
       </div>

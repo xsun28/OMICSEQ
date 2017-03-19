@@ -291,11 +291,13 @@ public class SampleSearchServiceImpl extends Thread  implements ISampleSearchSer
         
         String[] geneSymbole = pathGenes.split(",");
         for(int i=0; i<geneSymbole.length; i++)
-        {
-        	GeneItem geneItem = new GeneItem();
-        	geneItem.setTxName(geneSymbole[i]);
-        	geneItemList.add(geneItem);
-        }
+        {        
+                	
+                    GeneItem geneItem = new GeneItem();
+                    geneItem.setTxName(geneSymbole[i]);                   
+                    geneItem.setUsedForQuery(true);
+                    geneItemList.add(geneItem); 
+	}
         for(PathWaySample ps : pathWaySampleList)
         {
         	Sample sample = SampleCache.getInstance().getSampleById(ps.getSampleId());

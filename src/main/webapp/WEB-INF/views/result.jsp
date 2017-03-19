@@ -375,7 +375,10 @@
 											<c:if test="${item.study == 'ArrayExpress'}">#D8C647</c:if>
 											"	
 									>${item.study }</td>
-									<td class="lab" title="${item.lab}">${item.lab}</td>
+									<td class="lab" title="${item.lab}"> 
+										<c:if test="${item.lab == 'Serendi'}">Omicseq</c:if>
+										<c:if test="${item.lab != 'Serendi'}">${item.lab}</c:if> 
+									</td>
 									<%-- <td class="submitTile" title="${item.timeStamp }">${item.timeStamp }</td> --%>
 									<td align="left" id="Btntd_${item.sampleId }">
 										<ul class="inline">
@@ -389,8 +392,11 @@
 												<c:if test="${item.geoUrl != '#'}"><a class="btn btn-mini"  target="_blank"href="${item.geoUrl }">GEO</a></c:if>
 												<c:if test="${item.geoUrl == '#'}"><button class="btn btn-mini" style="cursor:default">GEO</button></c:if>
 											</li>
-									<!--		<li><a class="btn btn-mini" href="${item.url }" target="_blank"><i class="icon-download-alt"></i>Download</a></li> -->
-											<li><a class="btn btn-mini" id="showBtn${item.sampleId }" href="javascript:;" onclick="showMoreBtn(this,${item.sampleId})" title="" targetDrag="${item.sampleId }_Drag" style="display: block;">more.</a></li>
+		<c:if test = "${item.study != 'JASPAR' && item.study != 'TCGA' && item.study != 'GEO' 
+											&& item.study != 'TCGA Firebrowse' && item.study != 'ICGC' }" > 
+											<li><a class="btn btn-mini" href="${item.url }" target="_blank"><i class="icon-download-alt"></i>Download</a></li>
+											</c:if> 									
+		<li><a class="btn btn-mini" id="showBtn${item.sampleId }" href="javascript:;" onclick="showMoreBtn(this,${item.sampleId})" title="" targetDrag="${item.sampleId }_Drag" style="display: block;">more.</a></li>
 										</ul>
 									</td>
 								</tr>
@@ -456,7 +462,7 @@
 						<c:if test="${page == totalPage || totalPage == 0}"><span href="javascript:;" class="inactive paginatebtn"><fmt:message key="button.next"/></span></c:if>
 						<c:if test="${page lt totalPage}"><a href="javascript:;" class="paginatebtn" onclick="nextPage();"><fmt:message key="button.next"/></a></c:if>
 					</div>
-				<!--	<c:if test="${not empty result.current && !isHistoryResult}">
+					<c:if test="${not empty result.current && !isHistoryResult}">
 					<div class="row" style="margin-bottom:20px;">
 				      	<div class="span5" id="downloadCurTable" error="<fmt:message key="failed.select"/>">
 				      		<a onclick="downloadSelected(this)" class="btn btn-large"><fmt:message key="button.downloadselect"/></a>
@@ -464,7 +470,7 @@
 				      	<div class="span5" id="downloadCurTable">
 				      		<a class="btn btn-large" onclick="downloadAll('${result.current.geneId}','${geneSymbol}')"><fmt:message key="button.downloadall"/></a>
 				      	</div>
-				      	<div class="span5" id="collect">
+				 <!--  <div class="span5" id="collect">
 				      		<a onclick="saveHistory();" class="btn btn-large"><fmt:message key="button.collection"/></a>
 				      	</div>
 				    </div>

@@ -135,7 +135,12 @@ public class SampleItem implements java.io.Serializable {
             this.detail = sample.getDetail();
             if(sample.getUrl() !=null ){
 	            String [] url = sample.getUrl().split("/");
-	            String dataSource = SourceType.getUiMap().get(sample.getSource()).toString().toLowerCase();
+			   String dataSource;
+	            if(sample.getSource() > 15)
+	            dataSource = "unkown";
+	            else
+	             dataSource = SourceType.getUiMap().get(sample.getSource()).toString().toLowerCase();
+//			String dataSource = SourceType.getUiMap().get(sample.getSource()).toString().toLowerCase();
 		        if(dataSource.equals("Epigenome Roadmap".toLowerCase())){
 		        	dataSource = "roadmap";
 		        }

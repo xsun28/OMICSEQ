@@ -216,6 +216,31 @@
 				}
 				
 			}
+			function showDialog1(oA) {
+                                var callBack = function(result){
+                                        if(result.result){
+                                                var dialogId = oA.getAttribute("targetDrag");
+                                                var oDrag = document.getElementById(dialogId);
+                                                $('.drag').not($(oDrag)).css("z-index","1050");
+                                                $(oDrag).css("z-index","1060");
+                                                oDrag.style.display = "block";
+                                                //oA.style.display = "none";
+                                            }else{                                                                                                                                   
+						$('#faildDialog .errorMessage').html(result.message);
+                                                $('#faildDialog').modal({
+                                                         backdrop:true,
+                                                         keyboard:true,
+                                                         show:true
+                                                      });
+                                                         
+                                           }
+                                                  
+                                                   
+                                         };
+                                                 
+                                                                                                                                                                     var url = rootPath + "/user/trialAccount.json";
+                                sendRequest(url, null, "json", callBack, "");
+				}
 		</script>
 	</head>
 	<body>
@@ -271,6 +296,9 @@
 								</c:if>
 							</div>					
 						</c:if> 
+						<div class="row infoRow">
+                                                Data Type Distribution: <a  id="dialogbutton3" onclick="showDialog1(this);"  targetDrag="diagramDrag" style="display:inline-block">${geneSymbol }</a>
+                                                </div>
 						<div class="row infoRow">
 							<fmt:message key="label.searchmore1"/> <a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=${geneSymbol }">PubMed</a>,
 							<a target="_blank" href="http://en.wikipedia.org/wiki/${geneSymbol }">Wikipedia</a>,
@@ -377,8 +405,12 @@
 											<c:if test="${item.study == 'SUMMARY'}">#47D892</c:if>
 											"	
 									>${item.study }</td>
-									<td class="lab" title="${item.lab}">${item.lab}</td>
-									<%-- <td class="submitTile" title="${item.timeStamp }">${item.timeStamp }</td> --%>
+								<td class="lab" title="${item.lab}">
+                                                                                <c:if test="${item.lab == 'Serendi'}">Omicseq</c:if>
+                                                                                <c:if test="${item.lab != 'Serendi'}">${item.lab}</c:if>
+                                                                        </td>								
+	
+								<%-- <td class="submitTile" title="${item.timeStamp }">${item.timeStamp }</td> --%>
 									<td align="left" id="Btntd_${item.sampleId }">
 										<ul class="inline">
 											<li>
@@ -388,7 +420,11 @@
 											</li>
 											<li><a class="btn btn-mini" <c:if test="${item.pubMedUrl != '#'}">target="_blank"</c:if> href="${item.pubMedUrl }">PubMed</a></li>
 											<li><a class="btn btn-mini" target="_blank" href="${item.geoUrl }">GEO</a></li>
+											<c:if test = "${item.study != 'JASPAR' && item.study != 'TCGA' && item.study != 'GEO' 
+											&& item.study != 'TCGA Firebrowse' && item.study != 'GEO' && item.study != 'ICGC' }" > 
 											<li><a class="btn btn-mini" href="${item.url }" target="_blank"><i class="icon-download-alt"></i>Download</a></li>
+											</c:if> 
+
 											<li><a class="btn btn-mini" id="showBtn${item.sampleId }" href="javascript:;" onclick="showMoreBtn(this,${item.sampleId})" title="" targetDrag="${item.sampleId }_Drag" style="display: block;">more.</a></li>
 											<!--  
 											<li>
@@ -441,7 +477,21 @@
 							</c:forEach>
 						</table>
 					</div>
-			<!--		<c:if test="${not empty result.current && !isHistoryResult}">
+					                            <div class="row paginateWrap">
+                                                <c:if test="${page == 1}"><span href="javascript:;" class="inactive paginatebtn"><fmt:message key="button.previous"/></span></c:if>
+                                                <c:if test="${page gt 1}"><a href="javascript:;" class="paginatebtn" onclick="prevPage_advanced();"><fmt:message key="button.previous"/></a></c:if>
+                                                <c:if test="${totalPage == 0 }">
+                                                        <a href="javascript:;" class="inactive">1</a>
+                                                </c:if>
+                                                <c:forEach var="aPage" begin="${beginPage}"  end="${endPage}">
+                                                        <span href="javascript:;" <c:if test="${page eq aPage}">class="current paginate"</c:if> <c:if test="${page != aPage}">class="paginate advanced"</c:if>
+                                                                title="Go to page ${aPage } of ${totalPage }">${aPage }</span>
+                                                </c:forEach>
+                                                <c:if test="${page == totalPage || totalPage == 0}"><span href="javascript:;" class="inactive paginatebtn"><fmt:message key="button.next"/></span></c:if>
+                                                <c:if test="${page lt totalPage}"><a href="javascript:;" class="paginatebtn" onclick="nextPage_advanced();"><fmt:message key="button.next"/></a></c:if>
+                                        </div>
+
+					<c:if test="${not empty result.current && !isHistoryResult}">
 					<div class="row" style="margin-bottom:20px;">
 				      	<div class="span5" id="downloadCurTable" error="<fmt:message key="failed.select"/>">
 				      		<a onclick="downloadSelected(this)" class="btn btn-large"><fmt:message key="button.downloadselect"/></a>
@@ -449,7 +499,7 @@
 				      	<div class="span5" id="downloadCurTable">
 				      		<a class="btn btn-large" href="${ctx}/export/xlsx.htm?geneId=${result.current.geneId}&term=${geneSymbol}"><fmt:message key="button.downloadall"/></a>
 				      	</div>
-				      	<div class="span5" id="collect">
+				  <!--    	<div class="span5" id="collect">
 				      		<a onclick="saveHistory();" class="btn btn-large"><fmt:message key="button.collection"/></a>
 				      	</div>
 				    </div>
@@ -516,8 +566,9 @@
 		            <a class="min" href="javascript:;" title="<fmt:message key="placeholder.min"/>" targetoA="dialogbutton3"></a>
 		            <a class="max" href="javascript:;" title="<fmt:message key="placeholder.max"/>"></a>
 		            <a class="revert" href="javascript:;" title="<fmt:message key="placeholder.revert"/>"></a>
-		            <a class="closeDialog" href="javascript:;" title="<fmt:message key="button.close" />" targetoA="dialogbutton3"></a>
-		        </div>
+				<!--  <a class="closeDialog" href="javascript:;" title="<fmt:message key="button.close" />" targetoA="dialogbutton3"></a>  -->
+                         <a class="closeDialog" href="javascript:;" title="<fmt:message key="button.close" />" ></a>		       
+ </div>
 		    </div>
 		    <div class="resizeL"></div>
 		    <div class="resizeT"></div>
@@ -585,9 +636,9 @@
 	<%@ include file="/WEB-INF/common/dialog.jsp"%>
 	<c:if test="${!isHistoryResult}">
 	<!--	<a class="open btn btn-primary dialogbutton1" id="dialogbutton1" href="javascript:;" onclick="showDialog(this);" title="MAIN" targetDrag="mainDrag" style="display:block">M</a>
-		<a class="open btn btn-primary dialogbutton2" id="dialogbutton2" href="javascript:;" onclick="showDialog(this);" title="UCSC" targetDrag="ucscDrag" style="display:block">G</a> -->
+		<a class="open btn btn-primary dialogbutton2" id="dialogbutton2" href="javascript:;" onclick="showDialog(this);" title="UCSC" targetDrag="ucscDrag" style="display:block">G</a> 
 		<a class="open btn btn-primary dialogbutton3" id="dialogbutton3" href="javascript:;" onclick="showDialog(this);" title="Diagram" targetDrag="diagramDrag" style="display:block">D</a>
-		<!-- <a class="open btn btn-primary dialogbutton4" id="dialogbutton4" href="javascript:;" onclick="showDialog(this);" title="WordCloud-Factor" targetDrag="WordCloudDrag_Factor" style="display:block;width: 40px;">W-F</a>
+		 <a class="open btn btn-primary dialogbutton4" id="dialogbutton4" href="javascript:;" onclick="showDialog(this);" title="WordCloud-Factor" targetDrag="WordCloudDrag_Factor" style="display:block;width: 40px;">W-F</a>
 		<a class="open btn btn-primary dialogbutton5" id="dialogbutton5" href="javascript:;" onclick="showDialog(this);" title="WordCloud-CellType" targetDrag="WordCloudDrag_CellType" style="display:block;width: 40px;">W-C</a> -->
 	</c:if>
 	</body>

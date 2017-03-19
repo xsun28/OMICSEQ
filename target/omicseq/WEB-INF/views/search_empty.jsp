@@ -3,6 +3,8 @@
 <script type="text/javascript">
 $(document).ready(function(){
 	var rootPath = '${pageContext.request.contextPath}';
+	$("#geneAdvanced_div").attr("style","position: absolute;")
+        $("#geneAdvanced_div").css("left",$("#searchForm").position().left);
 	$("#searchForm").autocomplete({ 
 		source: function(request,response){
 			$("#ui-id-1").css("left", $("#searchForm").position().left - 3);
@@ -241,6 +243,10 @@ function hiddenNames() {
 						<a class="btn btn-success" id="geneSearch" onclick="goSearch();"><i class="icon-search icon-white"></i>&nbsp;<fmt:message key="button.search"/></a>
 						<a class="btn btn-primary" href="#setting" data-toggle="modal"><i class="icon-cog icon-white"></i>&nbsp;<fmt:message key="button.setting"/></a>
 					</div>
+				<br/>
+                                        <div class="row infoRow" id="geneAdvanced_div">
+                                                <a onclick="highlightTab('geneAdvanced',true);"><fmt:message key="label.advanced"></fmt:message></a>
+                                        </div>
 				</div>
 				<span id="diedai" ></span>
 			</div>
@@ -275,7 +281,8 @@ function hiddenNames() {
 								<span style="font-size: 14px;"><fmt:message key="label.cell"></fmt:message>:</span>
 							</td>
 							<td>
-								<input id="searchForm_cell" value="${geneCell }"  class="input-large search-query ac_input" autocomplete="off" placeholder="<fmt:message key="placeholder.keywords"/>" required="" type="text">
+								<!-- <input id="searchForm_cell" value="${geneCell }"  class="input-large search-query ac_input" autocomplete="off" placeholder="<fmt:message key="placeholder.keywords"/>" required="" type="text"> -->
+							 <input id="searchForm_cell" value="${geneCell }"  class="input-large search-query ac_input" autocomplete="off" placeholder="<fmt:message key="placeholder.keywords"/>"  type="text"> 
 							</td>
 						</tr>
 						<tr style="margin-top: 5px; "> 
@@ -283,7 +290,7 @@ function hiddenNames() {
 								<span style="font-size: 14px;"><fmt:message key="label.factor"></fmt:message>:</span>
 							</td>
 							<td>
-								<input id="searchForm_detail" value="${geneDetail }" class="input-large search-query ac_input" autocomplete="off" placeholder="<fmt:message key="placeholder.keywords"/>" required="" type="text">
+								<input id="searchForm_detail" value="${geneDetail }" class="input-large search-query ac_input" autocomplete="off" placeholder="<fmt:message key="placeholder.keywords"/>"  type="text">
 							</td>
 						</tr>
 						<tr style="margin-top: 5px; display: none" id="se_img">

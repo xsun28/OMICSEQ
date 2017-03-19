@@ -1087,14 +1087,15 @@ function geneSearchAdvanced(){
 		 $('#searchForm').focus();
 	}
 	if(geneCell == '' && geneDetail == ''){
-		if(geneCell == ''){
-			$('#searchForm_cell').focus();
-			return;
-		} 
-		if(geneDetail == ''){
-			 $('#searchForm_detail').focus();
-			 return;
-		}
+	//	if(geneCell == ''){
+	//		$('#searchForm_cell').focus();
+	//		return;
+	//	} 
+	//	if(geneDetail == ''){
+	//		 $('#searchForm_detail').focus();
+	//		 return;
+	//	}
+	goSearch();
 	}
 	var experimentsArray = [], sourcesArray = [];
 	$("input[name=experiments_advanced]:checked:visible").each(function(){

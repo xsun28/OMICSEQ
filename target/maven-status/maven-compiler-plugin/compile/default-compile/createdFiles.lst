@@ -334,6 +334,7 @@ com/omicseq/store/imp/SampleEncodeDnaseImp.class
 com/omicseq/robot/process/IlluminaBodayMap$1.class
 com/omicseq/store/criteria/PathWayCriteria.class
 com/omicseq/statistic/ComparatorFactory$7.class
+com/omicseq/statistic/ComparatorFactory$13.class
 com/omicseq/web/controller/ExportController.class
 com/omicseq/statistic/variation/AbstractVariationRankStatistic$2.class
 com/omicseq/core/summary/CalculateGeneRanksOfGeneSummary.class
@@ -549,6 +550,7 @@ com/omicseq/robot/process/RemoveSampleAndGeneRanks.class
 com/omicseq/robot/parse/CNV.class
 com/omicseq/statistic/variation/BamFileStatistic$1.class
 com/omicseq/statistic/EncodeRankStatistic.class
+com/omicseq/statistic/ComparatorFactory$14.class
 com/omicseq/store/dao/IStatisticInfoDAO.class
 com/omicseq/store/daoimpl/mongodb/MiRankDAO.class
 com/omicseq/io/WigReadRecordIterator.class

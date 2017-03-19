@@ -337,7 +337,7 @@ $(document).ready(function(){
 								<span style="font-size: 14px;"><fmt:message key="label.cell"></fmt:message>:</span>
 							</td>
 							<td>
-								<input id="searchForm_cell" value="${geneCell }"  class="input-large search-query ac_input" autocomplete="off" placeholder="<fmt:message key="placeholder.keywords"/>" required="" type="text">
+								<input id="searchForm_cell" value="${geneCell }"  class="input-large search-query ac_input" autocomplete="off" placeholder="<fmt:message key="placeholder.keywords"/>"  type="text">
 							</td>
 						</tr>
 						<tr style="margin-top: 5px; "> 
@@ -345,7 +345,7 @@ $(document).ready(function(){
 								<span style="font-size: 14px;"><fmt:message key="label.factor"></fmt:message>:</span>
 							</td>
 							<td>
-								<input id="searchForm_detail" value="${geneDetail }" class="input-large search-query ac_input" autocomplete="off" placeholder="<fmt:message key="placeholder.keywords"/>" required="" type="text">
+								<input id="searchForm_detail" value="${geneDetail }" class="input-large search-query ac_input" autocomplete="off" placeholder="<fmt:message key="placeholder.keywords"/>"  type="text">
 							</td>
 						</tr>
 						<tr style="margin-top: 5px; display: none" id="se_img">
