@@ -173,7 +173,7 @@ p{
 						   </ul> 
 						</div>	
                     
-                        <div class="subtitle">3. Gene Search Interface</div>
+                        <div class="subtitle">3.1 Gene Search Interface</div>
                     <div class="block_view">
                     
                     <p class="p_image">
@@ -210,7 +210,7 @@ p{
 				
                    
                      </div>
-                      <div class="subtitle">2. An Example of Gene Search Result</div>
+                      <div class="subtitle">3.2 An Example of Gene Search Result</div>
                      <div class="block_view">
                     <p class="p_image">
                       <div id="gallery">
@@ -355,7 +355,7 @@ p{
 						</table>	
                      </div>
                      
-                      <div class="subtitle">4. Pathway Search Interface</div>
+                      <div class="subtitle">4.1 Pathway Search Interface</div>
                     <div class="block_view">
                     
                     <p class="p_image">
@@ -388,7 +388,7 @@ p{
                      	</li>
                      </ul>
 </div>
-                      <div class="subtitle">4. An Example of Pathway Search Result</div>
+                      <div class="subtitle">4.2 An Example of Pathway Search Result</div>
                      <div class="block_view">
                     <p class="p_image">
                       <div id="gallery">

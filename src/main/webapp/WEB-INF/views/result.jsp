@@ -262,7 +262,7 @@
 							</div>
 						</c:if>
 <div class="row infoRow">
-						Data Type Distribution: <a  id="dialogbutton3" onclick="showDialog1(this);"  targetDrag="diagramDrag" style="display:inline-block">${geneSymbol }</a>
+ <a  id="dialogbutton3" onclick="showDialog1(this);"  targetDrag="diagramDrag" style="display:inline-block">Data Type Distribution</a>
 						</div>
 						<div class="row infoRow">
 							<fmt:message key="label.searchmore1"/> <a target="_blank" href="http://www.ncbi.nlm.nih.gov/pubmed/?term=${geneSymbol }">PubMed</a>,
@@ -377,7 +377,8 @@
 									>${item.study }</td>
 									<td class="lab" title="${item.lab}"> 
 										<c:if test="${item.lab == 'Serendi'}">Omicseq</c:if>
-										<c:if test="${item.lab != 'Serendi'}">${item.lab}</c:if> 
+<c:if test="${item.lab != 'Serendi'}">${item.lab}</c:if>										
+<c:if test="${item.dataType == 'MethyLation' || item.dataType == 'Dnase-seq'  }">${item.lab}(p)</c:if> 
 									</td>
 									<%-- <td class="submitTile" title="${item.timeStamp }">${item.timeStamp }</td> --%>
 									<td align="left" id="Btntd_${item.sampleId }">

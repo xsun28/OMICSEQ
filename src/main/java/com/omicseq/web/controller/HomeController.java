@@ -343,6 +343,9 @@ public class HomeController extends BaseController {
 				}
 				
 				sampleItem.setFactor_desc(factor_desc);
+				String dataType = sampleItem.getDataType();
+				if(dataType.contains("ChIP-seq") || dataType.contains("MethyLation") || dataType.contains("Dnase-seq"))
+					sampleItem.setLab(sampleItem.getLab()+"(p)");
 			}
 
 			for (SampleItem sampleItem : result.getSampleItemList()) {
@@ -792,6 +795,9 @@ public class HomeController extends BaseController {
 					cell_desc += " control";
 				}
 				sampleItem.setCell_desc(cell_desc);
+					String dataType = sampleItem.getDataType();
+				if(dataType.contains("ChIP-seq") || dataType.contains("MethyLation") || dataType.contains("Dnase-seq"))
+					sampleItem.setLab(sampleItem.getLab()+"(p)");
 			}
 		}
 		map.put("result", result);
