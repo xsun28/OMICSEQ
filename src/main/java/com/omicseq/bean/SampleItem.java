@@ -545,14 +545,19 @@ public class SampleItem implements java.io.Serializable {
                     continue;
                 }
                 if(this.study.equals(SourceType.JASPAR.getDesc())) {
-                	if(str.contains("#@#")) {
+			if(str.contains("#@#")) {
                 		//JASPAR link=http://jaspar.genereg.net/cgi-bin/jaspar_db.pl?ID#@#MA0484.1&rm#@#present&collection#@#CORE
                 		
                 		String url = "";
 				if(str.split("=").length>1)
                 		url = str.split("=")[1];
+		logger.error("url is {} ",url);
+				url = url.replaceAll("JASPAR link#@#","");
                 		str = "JASPAR link=<a style#@#'cursor: pointer' href#@#'" + url + "' target#@#'blank'>" + url + "</a>";
-                	}
+                		list.add(str);
+				break;
+				}
+		logger.error("Str1 is {} ",str);
                 }
                 list.add(str);
             }
@@ -560,14 +565,19 @@ public class SampleItem implements java.io.Serializable {
             int pos = arr.length % 2 == 0 ? arr.length / 2 : (arr.length / 2) + 1;
             String[] _arr1 = new String[pos];
             System.arraycopy(arr, 0, _arr1, 0, pos);
-            this.metaData[0] = StringUtils.join(_arr1, ";").replaceAll("=", ": ");
             
+	 if(!this.study.equals(SourceType.JASPAR.getDesc())) {
+		this.metaData[0] = StringUtils.join(_arr1, ";").replaceAll("=", ": ");
+         }else this.metaData[0] = StringUtils.join(_arr1, ";");   
             this.metaData[0] = this.metaData[0].replace("#@#", "=");
 
             String[] _arr2 = new String[arr.length - pos];
             System.arraycopy(arr, pos, _arr2, 0, arr.length - pos);
             this.metaData[1] = StringUtils.join(_arr2, ";").replaceAll("=", ": ");
         }
+	 if(this.study.equals(SourceType.JASPAR.getDesc())) {
+   logger.error("metadata 0 is {}",metaData[0]);
+        logger.error("metadata 1 is {}",metaData[1]);}
         return this.metaData;
     }
 
