@@ -1,93 +1,108 @@
 
-[INFO] - 2017-04-05 22:36:53,438 - com.omicseq.store.cache.XMemcachedProvider#94
+[INFO] - 2017-04-05 22:45:54,574 - com.omicseq.store.cache.XMemcachedProvider#94
  - memcached client is initialized successfully
 
-[ERROR] - 2017-04-05 22:37:54,970 - com.omicseq.bean.SampleItem#560
+[ERROR] - 2017-04-05 22:46:50,508 - com.omicseq.bean.SampleItem#560
  - Str1 is http://jaspar.genereg.net/cgi-bin/jaspar_db.pl?ID=MA0534.1&rm=present&collection=CORE 
 
-[ERROR] - 2017-04-05 22:37:54,972 - com.omicseq.bean.SampleItem#579
+[ERROR] - 2017-04-05 22:46:50,509 - com.omicseq.bean.SampleItem#579
  - metadata 0 is http://jaspar.genereg.net/cgi-bin/jaspar_db.pl?ID=MA0534.1&rm=present&collection=CORE
 
-[ERROR] - 2017-04-05 22:37:54,972 - com.omicseq.bean.SampleItem#580
+[ERROR] - 2017-04-05 22:46:50,510 - com.omicseq.bean.SampleItem#580
  - metadata 1 is 
 
-[ERROR] - 2017-04-05 22:37:54,972 - com.omicseq.bean.SampleItem#579
+[ERROR] - 2017-04-05 22:46:50,510 - com.omicseq.bean.SampleItem#579
  - metadata 0 is http://jaspar.genereg.net/cgi-bin/jaspar_db.pl?ID=MA0534.1&rm=present&collection=CORE
 
-[ERROR] - 2017-04-05 22:37:54,973 - com.omicseq.bean.SampleItem#580
+[ERROR] - 2017-04-05 22:46:50,510 - com.omicseq.bean.SampleItem#580
  - metadata 1 is 
 
-[ERROR] - 2017-04-05 22:38:02,195 - com.omicseq.bean.SampleItem#560
+[ERROR] - 2017-04-05 22:46:50,522 - com.omicseq.bean.SampleItem#560
  - Str1 is http://jaspar.genereg.net/cgi-bin/jaspar_db.pl?ID=MA0534.1&rm=present&collection=CORE 
 
-[ERROR] - 2017-04-05 22:38:02,196 - com.omicseq.bean.SampleItem#579
+[ERROR] - 2017-04-05 22:46:50,523 - com.omicseq.bean.SampleItem#579
  - metadata 0 is http://jaspar.genereg.net/cgi-bin/jaspar_db.pl?ID=MA0534.1&rm=present&collection=CORE
 
-[ERROR] - 2017-04-05 22:38:02,197 - com.omicseq.bean.SampleItem#580
+[ERROR] - 2017-04-05 22:46:50,523 - com.omicseq.bean.SampleItem#580
  - metadata 1 is 
 
-[ERROR] - 2017-04-05 22:38:02,197 - com.omicseq.bean.SampleItem#579
+[ERROR] - 2017-04-05 22:46:50,524 - com.omicseq.bean.SampleItem#579
  - metadata 0 is http://jaspar.genereg.net/cgi-bin/jaspar_db.pl?ID=MA0534.1&rm=present&collection=CORE
 
-[ERROR] - 2017-04-05 22:38:02,197 - com.omicseq.bean.SampleItem#580
+[ERROR] - 2017-04-05 22:46:50,524 - com.omicseq.bean.SampleItem#580
  - metadata 1 is 
 
-[ERROR] - 2017-04-05 22:38:02,199 - com.omicseq.bean.SampleItem#554
+[ERROR] - 2017-04-05 22:47:07,963 - com.omicseq.bean.SampleItem#560
+ - Str1 is http://jaspar.genereg.net/cgi-bin/jaspar_db.pl?ID=MA0534.1&rm=present&collection=CORE 
+
+[ERROR] - 2017-04-05 22:47:07,964 - com.omicseq.bean.SampleItem#579
+ - metadata 0 is http://jaspar.genereg.net/cgi-bin/jaspar_db.pl?ID=MA0534.1&rm=present&collection=CORE
+
+[ERROR] - 2017-04-05 22:47:07,964 - com.omicseq.bean.SampleItem#580
+ - metadata 1 is 
+
+[ERROR] - 2017-04-05 22:47:07,964 - com.omicseq.bean.SampleItem#579
+ - metadata 0 is http://jaspar.genereg.net/cgi-bin/jaspar_db.pl?ID=MA0534.1&rm=present&collection=CORE
+
+[ERROR] - 2017-04-05 22:47:07,965 - com.omicseq.bean.SampleItem#580
+ - metadata 1 is 
+
+[ERROR] - 2017-04-05 22:47:07,966 - com.omicseq.bean.SampleItem#554
  - url is JASPAR link#@#JASPAR link#@#http://jaspar.genereg.net/cgi-bin/jaspar_db.pl?ID#@#MA0492.1&rm#@#present&collection#@#CORE 
 
-[ERROR] - 2017-04-05 22:38:02,199 - com.omicseq.bean.SampleItem#579
+[ERROR] - 2017-04-05 22:47:07,966 - com.omicseq.bean.SampleItem#579
  - metadata 0 is JASPAR link=<a style='cursor: pointer' href='http://jaspar.genereg.net/cgi-bin/jaspar_db.pl?ID=MA0492.1&rm=present&collection=CORE' target='blank'>http://jaspar.genereg.net/cgi-bin/jaspar_db.pl?ID=MA0492.1&rm=present&collection=CORE</a>
 
-[ERROR] - 2017-04-05 22:38:02,199 - com.omicseq.bean.SampleItem#580
+[ERROR] - 2017-04-05 22:47:07,967 - com.omicseq.bean.SampleItem#580
  - metadata 1 is 
 
-[ERROR] - 2017-04-05 22:38:02,200 - com.omicseq.bean.SampleItem#579
+[ERROR] - 2017-04-05 22:47:07,967 - com.omicseq.bean.SampleItem#579
  - metadata 0 is JASPAR link=<a style='cursor: pointer' href='http://jaspar.genereg.net/cgi-bin/jaspar_db.pl?ID=MA0492.1&rm=present&collection=CORE' target='blank'>http://jaspar.genereg.net/cgi-bin/jaspar_db.pl?ID=MA0492.1&rm=present&collection=CORE</a>
 
-[ERROR] - 2017-04-05 22:38:02,200 - com.omicseq.bean.SampleItem#580
+[ERROR] - 2017-04-05 22:47:07,967 - com.omicseq.bean.SampleItem#580
  - metadata 1 is 
 
-[ERROR] - 2017-04-05 22:38:02,201 - com.omicseq.bean.SampleItem#560
+[ERROR] - 2017-04-05 22:47:07,968 - com.omicseq.bean.SampleItem#560
  - Str1 is http://jaspar.genereg.net/cgi-bin/jaspar_db.pl?ID=MA0383.1&rm=present&collection=CORE 
 
-[ERROR] - 2017-04-05 22:38:02,201 - com.omicseq.bean.SampleItem#579
+[ERROR] - 2017-04-05 22:47:07,969 - com.omicseq.bean.SampleItem#579
  - metadata 0 is http://jaspar.genereg.net/cgi-bin/jaspar_db.pl?ID=MA0383.1&rm=present&collection=CORE
 
-[ERROR] - 2017-04-05 22:38:02,202 - com.omicseq.bean.SampleItem#580
+[ERROR] - 2017-04-05 22:47:07,969 - com.omicseq.bean.SampleItem#580
  - metadata 1 is 
 
-[ERROR] - 2017-04-05 22:38:02,202 - com.omicseq.bean.SampleItem#579
+[ERROR] - 2017-04-05 22:47:07,970 - com.omicseq.bean.SampleItem#579
  - metadata 0 is http://jaspar.genereg.net/cgi-bin/jaspar_db.pl?ID=MA0383.1&rm=present&collection=CORE
 
-[ERROR] - 2017-04-05 22:38:02,203 - com.omicseq.bean.SampleItem#580
+[ERROR] - 2017-04-05 22:47:07,970 - com.omicseq.bean.SampleItem#580
  - metadata 1 is 
 
-[ERROR] - 2017-04-05 22:38:02,204 - com.omicseq.bean.SampleItem#560
+[ERROR] - 2017-04-05 22:47:07,971 - com.omicseq.bean.SampleItem#560
  - Str1 is http://jaspar.genereg.net/cgi-bin/jaspar_db.pl?ID=MA0214.1&rm=present&collection=CORE 
 
-[ERROR] - 2017-04-05 22:38:02,204 - com.omicseq.bean.SampleItem#579
+[ERROR] - 2017-04-05 22:47:07,972 - com.omicseq.bean.SampleItem#579
  - metadata 0 is http://jaspar.genereg.net/cgi-bin/jaspar_db.pl?ID=MA0214.1&rm=present&collection=CORE
 
-[ERROR] - 2017-04-05 22:38:02,204 - com.omicseq.bean.SampleItem#580
+[ERROR] - 2017-04-05 22:47:07,972 - com.omicseq.bean.SampleItem#580
  - metadata 1 is 
 
-[ERROR] - 2017-04-05 22:38:02,205 - com.omicseq.bean.SampleItem#579
+[ERROR] - 2017-04-05 22:47:07,972 - com.omicseq.bean.SampleItem#579
  - metadata 0 is http://jaspar.genereg.net/cgi-bin/jaspar_db.pl?ID=MA0214.1&rm=present&collection=CORE
 
-[ERROR] - 2017-04-05 22:38:02,205 - com.omicseq.bean.SampleItem#580
+[ERROR] - 2017-04-05 22:47:07,973 - com.omicseq.bean.SampleItem#580
  - metadata 1 is 
 
-[ERROR] - 2017-04-05 22:38:02,206 - com.omicseq.bean.SampleItem#560
+[ERROR] - 2017-04-05 22:47:07,974 - com.omicseq.bean.SampleItem#560
  - Str1 is http://jaspar.genereg.net/cgi-bin/jaspar_db.pl?ID=MA0046.1&rm=present&collection=CORE 
 
-[ERROR] - 2017-04-05 22:38:02,206 - com.omicseq.bean.SampleItem#579
+[ERROR] - 2017-04-05 22:47:07,974 - com.omicseq.bean.SampleItem#579
  - metadata 0 is http://jaspar.genereg.net/cgi-bin/jaspar_db.pl?ID=MA0046.1&rm=present&collection=CORE
 
-[ERROR] - 2017-04-05 22:38:02,207 - com.omicseq.bean.SampleItem#580
+[ERROR] - 2017-04-05 22:47:07,974 - com.omicseq.bean.SampleItem#580
  - metadata 1 is 
 
-[ERROR] - 2017-04-05 22:38:02,207 - com.omicseq.bean.SampleItem#579
+[ERROR] - 2017-04-05 22:47:07,975 - com.omicseq.bean.SampleItem#579
  - metadata 0 is http://jaspar.genereg.net/cgi-bin/jaspar_db.pl?ID=MA0046.1&rm=present&collection=CORE
 
-[ERROR] - 2017-04-05 22:38:02,208 - com.omicseq.bean.SampleItem#580
+[ERROR] - 2017-04-05 22:47:07,975 - com.omicseq.bean.SampleItem#580
  - metadata 1 is 

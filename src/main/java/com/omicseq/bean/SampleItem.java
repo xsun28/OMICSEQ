@@ -551,13 +551,11 @@ public class SampleItem implements java.io.Serializable {
                 		String url = "";
 				if(str.split("=").length>1)
                 		url = str.split("=")[1];
-		logger.error("url is {} ",url);
 				url = url.replaceAll("JASPAR link#@#","");
                 		str = "JASPAR link=<a style#@#'cursor: pointer' href#@#'" + url + "' target#@#'blank'>" + url + "</a>";
                 		list.add(str);
 				break;
 				}
-		logger.error("Str1 is {} ",str);
                 }
                 list.add(str);
             }
@@ -575,9 +573,6 @@ public class SampleItem implements java.io.Serializable {
             System.arraycopy(arr, pos, _arr2, 0, arr.length - pos);
             this.metaData[1] = StringUtils.join(_arr2, ";").replaceAll("=", ": ");
         }
-	 if(this.study.equals(SourceType.JASPAR.getDesc())) {
-   logger.error("metadata 0 is {}",metaData[0]);
-        logger.error("metadata 1 is {}",metaData[1]);}
         return this.metaData;
     }
 
