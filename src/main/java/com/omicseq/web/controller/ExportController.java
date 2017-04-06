@@ -178,7 +178,7 @@ public class ExportController extends BaseController {
             }
             wb.write(out);
         } else {
-            String fpath = "http://34.193.180.92/export/so_e/" + geneId + ".xlsx";
+           /* String fpath = "http://34.193.180.92/export/so_e/" + geneId + ".xlsx";
             try {
                 URL url = new URL(fpath);
                 InputStream is = url.openStream();
@@ -200,14 +200,14 @@ public class ExportController extends BaseController {
                 } catch (Exception e) {
                 	if (logger.isDebugEnabled()) {
                         logger.debug("open {} failed!", fpath, e);
-                    }
+                    }*/
                     GeneRankCriteria criteria = new GeneRankCriteria();
                     criteria.setGeneId(geneId);
                     criteria.setSortType(SortType.ASC);
 		    XSSFWorkbook wb = GeneRankExport.getInstance().buildWorkbook(criteria);
                     wb.write(out);
-                }
-            }
+               // }
+           // }
         }
         out.flush();
         out.close();
